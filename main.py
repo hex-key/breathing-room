@@ -3,6 +3,7 @@ import os, sys
 import json
 
 from dialog_box import DialogBox as DBox
+from cursor import Cursor
 
 class button:
     text = ""
@@ -126,6 +127,9 @@ class App(object):
         self.done = False
         self.keys = pg.key.get_pressed()
 
+        self.new_cursor = pg.image.load("./assets/cursor_img.png")
+        pg.mouse.set_visible(False)
+
         self.world = World(self)
 
     def event_loop(self):
@@ -159,6 +163,8 @@ class App(object):
         for arr in self.world.screen_object_arrays:
             for o in arr:
                 o.draw(self.screen)
+        
+        self.cursor_update(self.screen)
         pg.display.update()
 
     def main_loop(self):
@@ -171,6 +177,10 @@ class App(object):
             self.event_loop()
             self.render()
             self.clock.tick(self.fps)
+    
+    def cursor_update(self, screen):
+        position = pg.mouse.get_pos()
+        screen.blit(self.new_cursor, position)
 
 
 def main():
