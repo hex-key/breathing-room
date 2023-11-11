@@ -7,7 +7,7 @@ class button:
     text = ""
 
 CAPTION = "game with story 🦣"
-SCREEN_SIZE = (1000, 600)
+SCREEN_SIZE = (1000, 750)
 
 
 class ScreenObject(object):
@@ -95,8 +95,8 @@ class App(object):
             if event.type == pg.MOUSEBUTTONDOWN:
                 mouse_pos = pg.mouse.get_pos()
             if event.type == pg.QUIT:
-                # change the value to False, to exit the main loop
-                self.done = False
+                # Change done to True, to exit the main loop
+                self.done = True
 
     def render(self):
         """
