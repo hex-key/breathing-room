@@ -3,69 +3,12 @@ import os, sys
 import json
 
 from dialog_box import DialogBox as DBox
-from cursor import Cursor
 
 class button:
     text = ""
 
 CAPTION = "game with story 🦣"
 SCREEN_SIZE = (1000, 750)
-
-
-class ScreenObject(object):
-    """
-    A class to represent our lovable red sqaure.
-    """
-    SIZE = (150, 150)
-    
-    def __init__(self, pos):
-        """
-        The argument pos corresponds to the center of our rectangle.
-        """
-        self.rect = pg.Rect((0,0), ScreenObject.SIZE)
-        self.rect.center = pos
-        self.text, self.text_rect = self.setup_font()
-        self.click = False
-
-    def setup_font(self):
-        """
-        If your text doesn't change it is best to render once, rather than
-        re-render every time you want the text.  Rendering text every frame is
-        a common source of bottlenecks in beginner programs.
-        """
-        font = pg.font.SysFont('timesnewroman', 30)
-        message = "I'm a red square"
-        label = font.render(message, True, pg.Color("white"))
-        label_rect = label.get_rect()
-        return label, label_rect
-
-    def check_click(self, pos):
-        """
-        This function is called from the event loop to check if a click
-        overlaps with the player rect.
-        pygame.mouse.get_rel must be called on an initial hit so that
-        subsequent calls give the correct relative offset.
-        """
-        if self.rect.collidepoint(pos):
-            self.click = True
-            pg.mouse.get_rel()
-
-    def update(self, screen_rect):
-        """
-        If the square is currently clicked, update its position based on the
-        relative mouse movement.  Clamp the rect to the screen.
-        """
-        if self.click:
-            self.rect.move_ip(pg.mouse.get_rel())
-            self.rect.clamp_ip(screen_rect)
-        self.text_rect.center = (self.rect.centerx, self.rect.centery+90)
-
-    def draw(self, surface):
-        """
-        Blit image and text to the target surface.
-        """
-        surface.fill(pg.Color("red"), self.rect)
-        surface.blit(self.text, self.text_rect)
 
 class Button(object):
     def __init__(self, p, w, lines):
