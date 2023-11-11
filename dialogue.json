@@ -5,27 +5,52 @@
     },
     "main_room" : 
     {
-            "button_1" : 
-            {
-                "pos" : [20, 50],
-                "img_path" : "",
-                "dialogue" : 
-                [
-                    "first words",
-                    "second"
-                ]
-            },
-            "button_2" : 
-            {
-                "pos" : [100, 150],
-                "img_path" : "",
-                "dialogue" : 
-                [
-                    "different words",
-                    "once upon a time...",
-                    "there was a STORY",
-                    "the end."
-                ]
-            }
+        "textbooks" : 
+        {
+            "pos" : [20, 50],
+            "img_path" : "",
+            "checkpoint" : 1,
+            "dialogue" : 
+            [
+                "YOU RENTED THESE USED.",
+                "THEY ARE CURRENTLY IN THE EXACT SAME STATE OF USE YOU BOUGHT THEM IN.",
+                "MAYBE IF YOU OPENED ONE, YOU WOULD UNDERSTAND CHEMISTRY. ALAS, YOU DO NOT HAVE THE STRENGTH.",
+                "WHAT WILL YOU DO NOW?"
+            ]
+        },
+        "papers" : 
+        {
+            "pos" : [100, 150],
+            "img_path" : "",
+            "checkpoint" : 1,
+            "dialogue" : 
+            [
+                "different words",
+                "once upon a time...",
+                "there was a STORY",
+                "the end."
+            ]
+        },
+        "laundry" : 
+        {
+            "pos" : [250, 150],
+            "img_path" : "",
+            "checkpoint" : 1,
+            "dialogue" : 
+            [
+                "different words",
+                "once upon a time...",
+                "there was a STORY",
+                "the end."
+            ],
+            "options" :
+            [
+                
+            ],
+            "option_1" :
+            [
+
+            ]
+        }
     }
 }

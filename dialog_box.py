@@ -14,7 +14,7 @@ class DialogBox:
 
         self.world = world
         
-        self.font = pg.font.Font("./assets/november.ttf", 20)
+        self.font = pg.font.Font("./assets/november.ttf", 25)
         self.text_surface = self.font.render(self.lines[self.lines_index], True, (0, 0, 0))
         
         self.rect = pg.Rect(self.x, self.y, self.width, self.height)
