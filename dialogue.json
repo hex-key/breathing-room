@@ -1,5 +1,18 @@
 {
     "obstacle_1" : {
-            
+            "button_1" : {
+                "pos" : [20, 50],
+                "dialogue" : [
+                    "first words",
+                    "second"
+                ]
+            },
+            "button_2" : {
+                "pos" : [100, 150],
+                "dialogue" : [
+                    "first words",
+                    "second"
+                ]
+            }
     }
 }
