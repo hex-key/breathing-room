@@ -1,9 +1,14 @@
 {
-    "obstacle_1" : 
+    "intro" : 
+    {
+        
+    },
+    "main_room" : 
     {
             "button_1" : 
             {
                 "pos" : [20, 50],
+                "img_path" : "",
                 "dialogue" : 
                 [
                     "first words",
@@ -13,6 +18,7 @@
             "button_2" : 
             {
                 "pos" : [100, 150],
+                "img_path" : "",
                 "dialogue" : 
                 [
                     "different words",

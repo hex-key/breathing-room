@@ -4,13 +4,11 @@ import json
 
 from dialog_box import DialogBox as DBox
 
-class button:
-    text = ""
-
 CAPTION = "game with story 🦣"
 SCREEN_SIZE = (1000, 750)
 
-class Button(object):
+# 
+class RoomButton(object):
     def __init__(self, p, w, lines):
         self.size = (50, 50)
         self.rect = pg.Rect((0,0), self.size)
@@ -29,6 +27,22 @@ class Button(object):
             self.world.world_dboxes.append(DBox(100, 500, 500, 200, self.dialogue, self.world))
             self.world.state = "active_dialogue"
 
+class MenuStartButton(object):
+    def __init__(self, w):
+        self.image = pg.image.load("./assets/menu/start.png")
+        self.rect = self.image.get_rect()
+        self.rect.center = (480, 620)
+
+        self.world = w
+
+    
+    def draw(self, surface):
+        surface.blit(self.image, self.rect)
+
+    def check_click(self, p):
+        if self.rect.collidepoint(p):
+            print("clicked!")
+
 
 class World(object):
     def __init__(self, a):
@@ -44,14 +58,22 @@ class World(object):
         self.screen_object_arrays.append(self.world_dboxes)
 
         # World status options
+        #   menu                Starting menu, prompt to launch intro_sequence
+        #   intro_sequence      The intro sequence is playing
         #   active_dialogue     A dialogue box is on screen and currently has focus
-        #   unactive_obstacle   The player is investigating, next state is active_dialogue once they click a sprite
-        self.state = "unactive_obstacle"
+        #   idle_main_room      The player is investigating, next state is active_dialogue once they click a sprite
+        self.state = "menu"
 
-    def load_stage(self, stage_name):
-        print(self.dialogue[stage_name].values())
-        for button in self.dialogue[stage_name].values():
-            self.world_buttons.append(Button(button["pos"], self, button["dialogue"]))
+    def load_menu(self):
+        self.world_buttons.append(MenuStartButton(self))
+        self.app.bg_image = pg.image.load("./assets/menu/menu_bg.png")
+
+    def load_intro(self):
+        return
+
+    def load_main_room(self):
+        for button in self.dialogue["main_room"].values():
+            self.world_buttons.append(RoomButton(button["pos"], self, button["dialogue"]))
 
 
 class App(object):
@@ -69,6 +91,7 @@ class App(object):
         self.fps = 60
         self.done = False
         self.keys = pg.key.get_pressed()
+        self.bg_image = None
 
         self.new_cursor = pg.image.load("./assets/cursor_img.png")
         pg.mouse.set_visible(False)
@@ -87,7 +110,7 @@ class App(object):
             if event.type == pg.KEYDOWN:
                 continue
             if event.type == pg.MOUSEBUTTONDOWN:
-                if (self.world.state == "unactive_obstacle"):
+                if (self.world.state == "idle_main_room"):
                     for o in self.world.world_buttons:
                         o.check_click(event.pos)
                 elif (self.world.state == "active_dialogue"):
@@ -102,7 +125,8 @@ class App(object):
         All drawing should be found here.
         This is the only place that pygame.display.update() should be found.
         """
-        self.screen.fill(pg.Color("black"))
+        self.screen.blit(self.bg_image, (0, 0))
+        
         for arr in self.world.screen_object_arrays:
             for o in arr:
                 o.draw(self.screen)
@@ -115,7 +139,7 @@ class App(object):
         This is the game loop for the entire program.
         Like the event_loop, there should not be more than one game_loop.
         """
-        self.world.load_stage("obstacle_1")
+        self.world.load_menu()
         while not self.done:
             self.event_loop()
             self.render()
