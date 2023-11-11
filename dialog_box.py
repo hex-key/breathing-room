@@ -30,7 +30,7 @@ class DialogBox:
         if self.rect.collidepoint(p):
             self.lines_index += 1
             if self.lines_index >= self.lines_count:
-                self.world.screenObjects.remove(self)
+                self.world.world_dboxes.remove(self)
+                self.world.state = "unactive_obstacle"
             else:
                 self.text_surface = self.font.render(self.lines[self.lines_index], True, (0, 0, 0))
-                print("clicked!")

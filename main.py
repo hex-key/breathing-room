@@ -81,8 +81,9 @@ class Button(object):
 
     def check_click(self, p):
         if self.rect.collidepoint(p):
-            self.world.screenObjects.remove(self)
-            self.world.screenObjects.append(DBox(100, 500, 500, 200, self.dialogue, self.world))
+            self.world.world_buttons.remove(self)
+            self.world.world_dboxes.append(DBox(100, 500, 500, 200, self.dialogue, self.world))
+            self.world.state = "active_dialogue"
 
 
 class World(object):
@@ -90,12 +91,23 @@ class World(object):
         with open("./dialogue.json", "r") as f:
             self.dialogue = json.load(f)
         self.app = a
-        self.screenObjects = []
+
+        self.world_buttons = []
+        self.world_dboxes = []
+
+        self.screen_object_arrays = []
+        self.screen_object_arrays.append(self.world_buttons)
+        self.screen_object_arrays.append(self.world_dboxes)
+
+        # World status options
+        #   active_dialogue     A dialogue box is on screen and currently has focus
+        #   unactive_obstacle   The player is investigating, next state is active_dialogue once they click a sprite
+        self.state = "unactive_obstacle"
 
     def load_stage(self, stage_name):
         print(self.dialogue[stage_name].values())
         for button in self.dialogue[stage_name].values():
-            self.screenObjects.append(Button(button["pos"], self, button["dialogue"]))
+            self.world_buttons.append(Button(button["pos"], self, button["dialogue"]))
 
 
 class App(object):
@@ -128,8 +140,12 @@ class App(object):
             if event.type == pg.KEYDOWN:
                 continue
             if event.type == pg.MOUSEBUTTONDOWN:
-                for o in self.world.screenObjects:
-                    o.check_click(event.pos)
+                if (self.world.state == "unactive_obstacle"):
+                    for o in self.world.world_buttons:
+                        o.check_click(event.pos)
+                elif (self.world.state == "active_dialogue"):
+                    for o in self.world.world_dboxes:
+                        o.check_click(event.pos)
             if event.type == pg.QUIT:
                 # Change done to True, to exit the main loop
                 self.done = True
@@ -140,8 +156,9 @@ class App(object):
         This is the only place that pygame.display.update() should be found.
         """
         self.screen.fill(pg.Color("black"))
-        for o in self.world.screenObjects:
-            o.draw(self.screen)
+        for arr in self.world.screen_object_arrays:
+            for o in arr:
+                o.draw(self.screen)
         pg.display.update()
 
     def main_loop(self):
