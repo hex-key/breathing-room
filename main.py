@@ -41,8 +41,24 @@ class MenuStartButton(object):
 
     def check_click(self, p):
         if self.rect.collidepoint(p):
-            print("clicked!")
+            self.world.load_intro()
 
+class MenuSkipButton(object):
+    def __init__(self, w):
+        self.image = pg.image.load("./assets/menu/skip_button.png")
+        self.rect = self.image.get_rect()
+        self.rect.topleft = (900, 650)
+
+        self.world = w
+
+    
+    def draw(self, surface):
+        surface.blit(self.image, self.rect)
+
+    def check_click(self, p):
+        if self.rect.collidepoint(p):
+            print('help')
+            self.world.load_main_room()
 
 class World(object):
     def __init__(self, a):
@@ -64,16 +80,26 @@ class World(object):
         #   idle_main_room      The player is investigating, next state is active_dialogue once they click a sprite
         self.state = "menu"
 
+        self.current_checkpoint = 1
+
     def load_menu(self):
-        self.world_buttons.append(MenuStartButton(self))
         self.app.bg_image = pg.image.load("./assets/menu/menu_bg.png")
+        self.world_buttons.append(MenuStartButton(self))
+        self.world_buttons.append(MenuSkipButton(self))
 
     def load_intro(self):
-        return
-
+        self.clear_screen()
+        self.app.bg_image = pg.image.load("./assets/intro/intro_bg.png")
+        
     def load_main_room(self):
+        self.clear_screen()
+        self.app.bg_image = pg.image.load("./assets/main_room/bg.png")
         for button in self.dialogue["main_room"].values():
             self.world_buttons.append(RoomButton(button["pos"], self, button["dialogue"]))
+
+    def clear_screen(self):
+        for arr in self.screen_object_arrays:
+            arr.clear()
 
 
 class App(object):
@@ -110,7 +136,13 @@ class App(object):
             if event.type == pg.KEYDOWN:
                 continue
             if event.type == pg.MOUSEBUTTONDOWN:
-                if (self.world.state == "idle_main_room"):
+                if (self.world.state == "menu"):
+                    for o in self.world.world_buttons:
+                        o.check_click(event.pos)
+                elif (self.world.state == "intro_sequence"):
+                    for o in self.world.world_dboxes:
+                        o.check_click(event.pos)
+                elif (self.world.state == "idle_main_room"):
                     for o in self.world.world_buttons:
                         o.check_click(event.pos)
                 elif (self.world.state == "active_dialogue"):
