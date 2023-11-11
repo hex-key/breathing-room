@@ -5,7 +5,7 @@ CONTRIBUTORS
 * iris chen, umass - dialogue boxes, github/git mastery
 * lance cheng, umass - cursor/bg/sprite implementation, silly goofy moods
 * madi gudin, amherst - game/window structure, general chadness
-* sam johar, amherst - art, joy
+* sam johar, amherst - art, debugging genius, joy
   
 INSPIRATION
 
