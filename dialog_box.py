@@ -2,7 +2,7 @@ import pygame as pg
 from pygame import sprite
 
 class DialogBox:
-    def __init__(self, x: int, y: int, width: int, height: int, lines):
+    def __init__(self, x: int, y: int, width: int, height: int, lines: list[str]):
         self.x = x
         self.y = y
         self.width = width
