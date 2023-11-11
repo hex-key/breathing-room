@@ -1,9 +1,22 @@
 # GameWithStory
 Project for HackUMass XI 🦣🥳🎈 
 
-team_with_name contributors:
-* iris chen, umass amherst '27
-* lance cheng, umass amherst '27
-* madi gudin, amherst college '27
-* sam johar, amherst college '27
+CONTRIBUTORS
+* iris chen, umass - dialogue boxes, github/git mastery
+* lance cheng, umass - cursor/bg/sprite implementation, silly goofy moods
+* madi gudin, amherst - game/window structure, general chadness
+* sam johar, amherst - art, joy
   
+INSPIRATION
+
+WHAT IT DOES
+
+HOW WE BUILT IT
+
+CHALLENGES
+
+ACCOMPLISHMENTS
+
+WHAT WE LEARNED
+
+WHAT'S NEXT
