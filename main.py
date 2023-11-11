@@ -19,6 +19,8 @@ def main():
         # event handling, gets all event from the event queue
         for event in pg.event.get():
             # only do something if the event is of type QUIT
+            if event.type == pg.KEYDOWN:
+                continue
             if event.type == pg.QUIT:
                 # change the value to False, to exit the main loop
                 running = False
