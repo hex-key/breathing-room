@@ -1,7 +1,6 @@
 import pygame as pg
 
-class dialogue_box:
-    text = ""
+from dialog_box import DialogBox as DBox
 
 def main():
     # initialize the pg module
