@@ -4,76 +4,17 @@ import json
 
 from dialog_box import DialogBox as DBox
 
-class button:
-    text = ""
-
 CAPTION = "game with story 🦣"
 SCREEN_SIZE = (1000, 750)
 
-
-class ScreenObject(object):
-    """
-    A class to represent our lovable red sqaure.
-    """
-    SIZE = (150, 150)
-    
-    def __init__(self, pos):
-        """
-        The argument pos corresponds to the center of our rectangle.
-        """
-        self.rect = pg.Rect((0,0), ScreenObject.SIZE)
-        self.rect.center = pos
-        self.text, self.text_rect = self.setup_font()
-        self.click = False
-
-    def setup_font(self):
-        """
-        If your text doesn't change it is best to render once, rather than
-        re-render every time you want the text.  Rendering text every frame is
-        a common source of bottlenecks in beginner programs.
-        """
-        font = pg.font.SysFont('timesnewroman', 30)
-        message = "I'm a red square"
-        label = font.render(message, True, pg.Color("white"))
-        label_rect = label.get_rect()
-        return label, label_rect
-
-    def check_click(self, pos):
-        """
-        This function is called from the event loop to check if a click
-        overlaps with the player rect.
-        pygame.mouse.get_rel must be called on an initial hit so that
-        subsequent calls give the correct relative offset.
-        """
-        if self.rect.collidepoint(pos):
-            self.click = True
-            pg.mouse.get_rel()
-
-    def update(self, screen_rect):
-        """
-        If the square is currently clicked, update its position based on the
-        relative mouse movement.  Clamp the rect to the screen.
-        """
-        if self.click:
-            self.rect.move_ip(pg.mouse.get_rel())
-            self.rect.clamp_ip(screen_rect)
-        self.text_rect.center = (self.rect.centerx, self.rect.centery+90)
-
-    def draw(self, surface):
-        """
-        Blit image and text to the target surface.
-        """
-        surface.fill(pg.Color("red"), self.rect)
-        surface.blit(self.text, self.text_rect)
-
-class Button(object):
+# 
+class RoomButton(object):
     def __init__(self, p, w, lines):
         self.size = (50, 50)
         self.rect = pg.Rect((0,0), self.size)
         self.rect.center = p
 
         self.world = w
-        self.world.screenObjects.append(self)
 
         self.dialogue = lines
     
@@ -82,8 +23,25 @@ class Button(object):
 
     def check_click(self, p):
         if self.rect.collidepoint(p):
-            self.world.screenObjects.remove(self)
-            self.world.screenObjects.append(DBox(100, 500, 500, 200, self.dialogue))
+            self.world.world_buttons.remove(self)
+            self.world.world_dboxes.append(DBox(100, 500, 500, 200, self.dialogue, self.world))
+            self.world.state = "active_dialogue"
+
+class MenuStartButton(object):
+    def __init__(self, w):
+        self.image = pg.image.load("./assets/menu/start.png")
+        self.rect = self.image.get_rect()
+        self.rect.center = (480, 620)
+
+        self.world = w
+
+    
+    def draw(self, surface):
+        surface.blit(self.image, self.rect)
+
+    def check_click(self, p):
+        if self.rect.collidepoint(p):
+            print("clicked!")
 
 
 class World(object):
@@ -91,11 +49,31 @@ class World(object):
         with open("./dialogue.json", "r") as f:
             self.dialogue = json.load(f)
         self.app = a
-        self.screenObjects = []
 
-    def load_stage(self, stage_name):
-        for button in self.dialogue[stage_name].values():
-            self.screenObjects.append(Button(button["pos"], self, button["dialogue"]))
+        self.world_buttons = []
+        self.world_dboxes = []
+
+        self.screen_object_arrays = []
+        self.screen_object_arrays.append(self.world_buttons)
+        self.screen_object_arrays.append(self.world_dboxes)
+
+        # World status options
+        #   menu                Starting menu, prompt to launch intro_sequence
+        #   intro_sequence      The intro sequence is playing
+        #   active_dialogue     A dialogue box is on screen and currently has focus
+        #   idle_main_room      The player is investigating, next state is active_dialogue once they click a sprite
+        self.state = "menu"
+
+    def load_menu(self):
+        self.world_buttons.append(MenuStartButton(self))
+        self.app.bg_image = pg.image.load("./assets/menu/menu_bg.png")
+
+    def load_intro(self):
+        return
+
+    def load_main_room(self):
+        for button in self.dialogue["main_room"].values():
+            self.world_buttons.append(RoomButton(button["pos"], self, button["dialogue"]))
 
 
 class App(object):
@@ -113,6 +91,10 @@ class App(object):
         self.fps = 60
         self.done = False
         self.keys = pg.key.get_pressed()
+        self.bg_image = None
+
+        self.new_cursor = pg.image.load("./assets/cursor_img.png")
+        pg.mouse.set_visible(False)
 
         self.world = World(self)
 
@@ -126,10 +108,14 @@ class App(object):
         for event in pg.event.get():
             # only do something if the event is of type QUIT
             if event.type == pg.KEYDOWN:
-                print(chr(event.key))
+                continue
             if event.type == pg.MOUSEBUTTONDOWN:
-                for o in self.world.screenObjects:
-                    o.check_click(event.pos)
+                if (self.world.state == "idle_main_room"):
+                    for o in self.world.world_buttons:
+                        o.check_click(event.pos)
+                elif (self.world.state == "active_dialogue"):
+                    for o in self.world.world_dboxes:
+                        o.check_click(event.pos)
             if event.type == pg.QUIT:
                 # Change done to True, to exit the main loop
                 self.done = True
@@ -139,9 +125,13 @@ class App(object):
         All drawing should be found here.
         This is the only place that pygame.display.update() should be found.
         """
-        self.screen.fill(pg.Color("black"))
-        for o in self.world.screenObjects:
-            o.draw(self.screen)
+        self.screen.blit(self.bg_image, (0, 0))
+        
+        for arr in self.world.screen_object_arrays:
+            for o in arr:
+                o.draw(self.screen)
+        
+        self.cursor_update(self.screen)
         pg.display.update()
 
     def main_loop(self):
@@ -149,11 +139,15 @@ class App(object):
         This is the game loop for the entire program.
         Like the event_loop, there should not be more than one game_loop.
         """
-        self.world.load_stage("obstacle_1")
+        self.world.load_menu()
         while not self.done:
             self.event_loop()
             self.render()
             self.clock.tick(self.fps)
+    
+    def cursor_update(self, screen):
+        position = pg.mouse.get_pos()
+        screen.blit(self.new_cursor, position)
 
 
 def main():
