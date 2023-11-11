@@ -9,7 +9,7 @@ def main():
     pygame.display.set_caption("game with story 🦣")
      
     # create a surface on screen that has the size of 240 x 180
-    screen = pygame.display.set_mode((1480, 960))
+    screen = pygame.display.set_mode((1000, 750))
      
     # define a variable to control the main loop
     running = True
