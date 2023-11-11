@@ -73,7 +73,6 @@ class Button(object):
         self.rect.center = p
 
         self.world = w
-        self.world.screenObjects.append(self)
 
         self.dialogue = lines
     
@@ -83,7 +82,7 @@ class Button(object):
     def check_click(self, p):
         if self.rect.collidepoint(p):
             self.world.screenObjects.remove(self)
-            self.world.screenObjects.append(DBox(100, 500, 500, 200, self.dialogue))
+            self.world.screenObjects.append(DBox(100, 500, 500, 200, self.dialogue, self.world))
 
 
 class World(object):
@@ -94,6 +93,7 @@ class World(object):
         self.screenObjects = []
 
     def load_stage(self, stage_name):
+        print(self.dialogue[stage_name].values())
         for button in self.dialogue[stage_name].values():
             self.screenObjects.append(Button(button["pos"], self, button["dialogue"]))
 
@@ -126,7 +126,7 @@ class App(object):
         for event in pg.event.get():
             # only do something if the event is of type QUIT
             if event.type == pg.KEYDOWN:
-                print(chr(event.key))
+                continue
             if event.type == pg.MOUSEBUTTONDOWN:
                 for o in self.world.screenObjects:
                     o.check_click(event.pos)
