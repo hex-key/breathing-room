@@ -1,5 +1,6 @@
 import pygame as pg
 import os, sys
+import json
 
 from dialog_box import DialogBox as DBox
 
@@ -65,6 +66,38 @@ class ScreenObject(object):
         surface.fill(pg.Color("red"), self.rect)
         surface.blit(self.text, self.text_rect)
 
+class Button(object):
+    def __init__(self, p, w, lines):
+        self.size = (50, 50)
+        self.rect = pg.Rect((0,0), self.size)
+        self.rect.center = p
+
+        self.world = w
+        self.world.screenObjects.append(self)
+
+        self.dialogue = lines
+    
+    def draw(self, surface):
+        surface.fill(pg.Color("red"), self.rect)
+
+    def check_click(self, p):
+        if self.rect.collidepoint(p):
+            self.world.screenObjects.remove(self)
+            self.world.screenObjects.append(DBox(100, 500, 500, 200, self.dialogue))
+
+
+class World(object):
+    def __init__(self, a):
+        with open("./dialogue.json", "r") as f:
+            self.dialogue = json.load(f)
+        self.app = a
+        self.screenObjects = []
+
+    def load_stage(self, stage_name):
+        for button in self.dialogue[stage_name].values():
+            self.screenObjects.append(Button(button["pos"], self, button["dialogue"]))
+
+
 class App(object):
     """
     A class to manage our event, game loop, and overall program flow.
@@ -81,6 +114,8 @@ class App(object):
         self.done = False
         self.keys = pg.key.get_pressed()
 
+        self.world = World(self)
+
     def event_loop(self):
         """
         This is the event loop for the whole program.
@@ -93,7 +128,8 @@ class App(object):
             if event.type == pg.KEYDOWN:
                 print(chr(event.key))
             if event.type == pg.MOUSEBUTTONDOWN:
-                mouse_pos = pg.mouse.get_pos()
+                for o in self.world.screenObjects:
+                    o.check_click(event.pos)
             if event.type == pg.QUIT:
                 # Change done to True, to exit the main loop
                 self.done = True
@@ -104,6 +140,8 @@ class App(object):
         This is the only place that pygame.display.update() should be found.
         """
         self.screen.fill(pg.Color("black"))
+        for o in self.world.screenObjects:
+            o.draw(self.screen)
         pg.display.update()
 
     def main_loop(self):
@@ -111,6 +149,7 @@ class App(object):
         This is the game loop for the entire program.
         Like the event_loop, there should not be more than one game_loop.
         """
+        self.world.load_stage("obstacle_1")
         while not self.done:
             self.event_loop()
             self.render()
