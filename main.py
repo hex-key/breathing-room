@@ -64,6 +64,7 @@ class World():
         self.state = "menu"
 
         self.current_checkpoint = 0
+        self.remaining_active = 0
 
     def load_menu(self):
         self.set_world_state("menu")
@@ -88,8 +89,12 @@ class World():
         def f():
             self.sprites.empty()
             self.app.bg_image = pg.image.load("./assets/main_room/bg.png")
+
+            self.remaining_active = 0
             for key, s in self.room_objects_dialogue.items():
                 self.sprites.add(RoomObject(self, s["pos"], s["dialogue"], s["checkpoint"], key))
+                if s["checkpoint"] == 0:
+                    self.remaining_active += 1
             self.set_world_state("idle_main_room")
         self.sprites.add(Fade(self, f))
     
@@ -100,6 +105,10 @@ class World():
             if self.current_checkpoint == 4:
                 self.set_world_state("end")
             else:
+                self.remaining_active = 0
+                for key, s in self.room_objects_dialogue.items():
+                    if s["checkpoint"] == self.current_checkpoint:
+                        self.remaining_active += 1
                 self.set_world_state("idle_main_room")
         self.sprites.add(Fade(self, f))
         
@@ -120,6 +129,7 @@ class World():
                 self.state = state
                 for s in self.sprites:
                     if isinstance(s, RoomObject):
+                        s.set_active(self.current_checkpoint)
                         if s.state == "clicked":
                             s.set_state("fading")
                 self.refresh_checkpoints()
@@ -134,13 +144,7 @@ class World():
                 raise Exception("Improper world state passed to set_world_state()")
             
     def refresh_checkpoints(self):
-        remaining_active = 0
-        for s in self.sprites:
-            if isinstance(s, RoomObject):
-                s.set_active(self.current_checkpoint)
-                if s.image == s.asset_active:
-                    remaining_active += 1
-        if remaining_active == 1:
+        if self.remaining_active == 0:
             self.set_world_state("checkpoint_main_room")
         
 class MenuButton(pg.sprite.Sprite):
@@ -194,6 +198,7 @@ class RoomObject(pg.sprite.Sprite):
             self.set_state("clicked")
             self.world.set_world_state("dialogue_main_room")
             self.world.sprites.add(DBox(70, 70, 500, 200, "room_object", self.lines, self.world))
+            self.world.remaining_active -= 1
     
     # Possible button states
     #   visible     Button is regularly displayed
