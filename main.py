@@ -61,6 +61,7 @@ class World():
 
         # World state options
         #   menu                    Starting menu, prompt to launch intro_sequence
+        #   fade                    World is actively fading, halt all input handling
         #   intro_sequence          The intro sequence is playing
         #   idle_main_room          The player is investigating, next state is active_dialogue once they click a sprite
         #   dialogue_main_room      A main roomdialogue box is on screen and currently has focus
@@ -77,9 +78,13 @@ class World():
                     )
 
     def load_intro(self):
-        self.state = "intro_sequence"
-        self.sprites.empty()
-        self.app.bg_image = pg.image.load("./assets/intro/bg.png")
+        self.state = "fade"
+        def f():
+            self.state = "intro_sequence"
+            self.sprites.empty()
+            self.app.bg_image = pg.image.load("./assets/intro/bg.png")
+            #self.sprites.add(DBox(100, 600, 800, 150, self.intro_dialogue, self))
+        
         
     def load_main_room(self):
         self.state = "idle_main_room"
@@ -131,11 +136,27 @@ class Button(pg.sprite.Sprite):
             else:
                 self.state = "clicked"
                 self.world.set_world_state("main_room_dialogue")
-                self.world.sprites.add(DBox(100, 100, 500, 200, self.lines, self.world))
+                self.world.sprites.add(DBox(70, 70, 500, 200, self.lines, self.world))
     
     def set_state(self, state):
         self.state = state
 
+class Fade(pg.sprite.Sprite):
+    def __init__(self, world: World, action: Callable):
+        super().__init__()
+        self.rect = pg.display.get_surface().get_rect()
+        self.image = pg.Surface(self.rect.size, flags=pg.SRCALPHA)
+        self.alpha = 0
+
+        self.world = world
+        self.action = action
+
+    def update(self):
+        self.image.fill((0, 0, 0, self.alpha))
+        self.alpha += 1
+        if self.alpha > 255:
+            self.direction *= -1
+            self.alpha += self.direction
 
 def main():
     os.environ['SDL_VIDEO_CENTERED'] = '1'

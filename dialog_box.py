@@ -1,6 +1,7 @@
 import pygame as pg
 from pygame import sprite
 
+#need to adapt this to work for the initial screen prompts and the checkpoint prompts
 
 class DialogBox(pg.sprite.Sprite):
     def __init__(self, x: int, y: int, width: int, height: int, dialogue: list[str], world):
