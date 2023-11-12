@@ -139,7 +139,7 @@ class World():
                     self.sprites.add(DBox(100, 200, 500, 200, "checkpoint", self.room_checkpoints_dialogue[f"checkpoint_{self.current_checkpoint+1}"], self, (221, 255, 252)))
                 else:
                     for key, s in self.room_objects_dialogue.items():
-                        if s["checkpoint"] != -1:
+                        if s["checkpoint"] == -1:
                             self.sprites.add(RoomObject(self, s["pos"], s["dialogue"], s["checkpoint"], key))
             case "end":
                 self.state = state
