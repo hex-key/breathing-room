@@ -203,51 +203,47 @@
                         "THEY'RE COZY. YOU LIKE THEM.",
                         "WHAT WILL YOU DO?"
                     ],
-                    "prompt_1" : "",
+                    "prompt_1" : "[BUNDLE UP.]",
                     "response_1" : 
                     [
-                        "...",
+                        "…",
                         "YOU STARE FOR A WHILE.",
-                        "YOU'RE NOT DOING ANYTHING ELSE.",
+                        "YOU’RE NOT DOING ANYTHING ELSE.",
                         "THERE IS NO REASON FOR YOU NOT TO BE DOING THIS RIGHT NOW.",
-                        "AND YET, YOU'RE NOT DOING THIS RIGHT NOW.",
-                        "YOU STARE SOME MORE.",
-                        "THEN YOU SPOT SOMETHING THAT LOOKS LIKE...A BUNNY EAR?",
-                        "OH. RIGHT.",
-                        "YOU OPEN WHAT WOULD HAVE BEEN A TREASURE CHEST OF FRIENDS TO YOUR CHILD SELF.",
-                        "YOU REMEMBER SITTING YOUR STUFFED ANIMALS IN A CIRCLE AROUND YOU FOR DEEP CONVERSATION AND TEA.",
-                        "YOU REMEMBER HOLDING THEM.",
-                        "YOU REMEMBER IMAGINING THEY COULD HOLD YOU TOO.",
-                        "...",
-                        "YOU GOT A FRIEND IN ME...?",
-                        "OKAY, NOW THAT'S JUST RIDICULOUS.",
-                        "YOU WILL NOT BE RECREATING TOY STORY.",
-                        "YOU ARE NOT DESPERATE ENOUGH TO ATTEMPT TO FIND COMPANIONSHIP IN INANIMATE OBJECTS.",
-                        "WHAT YOU WILL BE DOING INSTEAD IS...",
-                        "..."
-                    ],
-                    "prompt_2" : "BUNDLE UP",
-                    "response_2" : 
+                        "AND YET, YOU’RE NOT DOING THIS RIGHT NOW.",
+                        "STAYING HERE WAS SUPPOSED TO BE THE EASIER CHOICE.",
+                        "BUT IT SEEMS LIKE EVEN WHEN YOU’RE SEQUESTERED IN YOUR ROOM, AWAY FROM THE WORLD...",
+                        "NOTHING CAN JUST BE SIMPLE."
+                    ]
+                }
+            },
+            "stuffies" : 
+            {
+                "pos" : [370, 614],
+                "img_path" : "./assets/main_room/stuffies.png",
+                "checkpoint" : 1,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
                     [
-                        "...",
-                        "YOU STARE FOR A WHILE.",
-                        "YOU'RE NOT DOING ANYTHING ELSE.",
-                        "THERE IS NO REASON FOR YOU NOT TO BE DOING THIS RIGHT NOW.",
-                        "AND YET, YOU'RE NOT DOING THIS RIGHT NOW.",
-                        "YOU STARE SOME MORE.",
-                        "THEN YOU SPOT SOMETHING THAT LOOKS LIKE...A BUNNY EAR?",
+                        "SPILLING OUT OF THE SIDE OF THIS BOX IS SOMETHING THAT LOOKS LIKE…A PAW?"
                         "OH. RIGHT.",
                         "YOU OPEN WHAT WOULD HAVE BEEN A TREASURE CHEST OF FRIENDS TO YOUR CHILD SELF.",
                         "YOU REMEMBER SITTING YOUR STUFFED ANIMALS IN A CIRCLE AROUND YOU FOR DEEP CONVERSATION AND TEA.",
                         "YOU REMEMBER HOLDING THEM.",
                         "YOU REMEMBER IMAGINING THEY COULD HOLD YOU TOO.",
-                        "...",
-                        "YOU GOT A FRIEND IN ME...?",
-                        "OKAY, NOW THAT'S JUST RIDICULOUS.",
+                        "WHAT WILL YOU DO?"
+                    ],
+                    "prompt_1" : "[YOU GOT A FRIEND IN ME?]",
+                    "response_1" : 
+                    [
+                        "OKAY, NOW THAT’S JUST RIDICULOUS.",
                         "YOU WILL NOT BE RECREATING TOY STORY.",
                         "YOU ARE NOT DESPERATE ENOUGH TO ATTEMPT TO FIND COMPANIONSHIP IN INANIMATE OBJECTS.",
-                        "WHAT YOU WILL BE DOING INSTEAD IS...",
-                        "..."
+                        "WHAT YOU WILL BE DOING INSTEAD IS…",
+                        "…",
+                        "…",
+                        "HM."
                     ]
                 }
             },
@@ -298,29 +294,6 @@
                     "response_2" : 
                     [
                         "hello"
-                    ]
-                }
-            },
-            "poster" : 
-            {
-                "pos" : [285, 140],
-                "img_path" : "./assets/main_room/poster.png",
-                "checkpoint" : 2,
-                "hidden" : 0,
-                "dialogue" : {
-                    "initial" :
-                    [
-                        
-                    ],
-                    "prompt_1" : "",
-                    "response_1" : 
-                    [
-                        
-                    ],
-                    "prompt_2" : "",
-                    "response_2" : 
-                    [
-                        
                     ]
                 }
             },
