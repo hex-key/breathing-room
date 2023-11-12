@@ -93,6 +93,13 @@ class World():
             self.set_world_state("idle_main_room")
         self.sprites.add(Fade(self, f))
     
+    def load__next_checkpoint(self):
+        self.set_world_state("fade")
+        def f():
+            self.current_checkpoint += 1
+            self.set_world_state("idle_main_room")
+        self.sprites.add(Fade(self, f))
+
     # World state options
     #   menu                    Starting menu, prompt to launch intro_sequence
     #   fade                    World is actively fading, halt all input handling
@@ -102,22 +109,29 @@ class World():
     #   checkpoint_main_room    Main room checkpoint dialogue is on screen
     def set_world_state(self, state: str):
         match state:
-            case "menu" | "fade" | "intro_sequence" | "dialogue_main_room" | "checkpoint_main_room":
+            case "menu" | "fade" | "intro_sequence" | "dialogue_main_room":
                 self.state = state
             case "idle_main_room":
                 self.state = state
-                self.refresh_checkpoints()
                 for s in self.sprites:
                     if isinstance(s, RoomObject):
                         if s.state == "clicked":
                             s.set_state("fading")
+                self.refresh_checkpoints()
+            case "checkpoint_main_room":
+                self.sprites.add(DBox(100, 200, 500, 200, "checkpoint", self.room_checkpoints_dialogue[f"checkpoint_{self.current_checkpoint+1}"], self, (221, 255, 252)))
             case _:
                 raise Exception("Improper world state passed to set_world_state()")
             
     def refresh_checkpoints(self):
+        remaining_active = 0
         for s in self.sprites:
             if isinstance(s, RoomObject):
                 s.set_active(self.current_checkpoint)
+                if s.image == s.asset_active:
+                    remaining_active += 1
+        if remaining_active == 1:
+            self.set_world_state("checkpoint_main_room")
         
 class MenuButton(pg.sprite.Sprite):
     def __init__(self, world: World, img_path: str, center: tuple, action: Callable):    
@@ -166,10 +180,10 @@ class RoomObject(pg.sprite.Sprite):
                 self.kill()
 
     def check_click(self, p: tuple[int, int]):
-        if self.rect.collidepoint(p) and self.state == "visible" and self.world.state != "dialogue_main_room" and (self.image == self.asset_active):
+        if self.rect.collidepoint(p) and self.state == "visible" and self.world.state not in ("dialogue_main_room", "checkpoint_main_room") and (self.image == self.asset_active):
             self.set_state("clicked")
             self.world.set_world_state("dialogue_main_room")
-            self.world.sprites.add(DBox(70, 70, 500, 200, self.lines, self.world))
+            self.world.sprites.add(DBox(70, 70, 500, 200, "room_object", self.lines, self.world))
     
     # Possible button states
     #   visible     Button is regularly displayed
