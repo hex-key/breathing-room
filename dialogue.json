@@ -280,6 +280,29 @@
                 "dialogue" : {
                     "initial" :
                     [
+
+                    ],
+                    "prompt_1" : "",
+                    "response_1" : 
+                    [
+                        "hello"
+                    ],
+                    "prompt_2" : "temporary",
+                    "response_2" : 
+                    [
+                        "hello"
+                    ]
+                }
+            },
+            "folder" : 
+            {
+                "pos" : [562, 542],
+                "img_path" : "./assets/main_room/folder.png",
+                "checkpoint" : 2,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [ 
                         "YOU SPEND MOST OF YOUR TIME IN THIS TINY SHIPPING CONTAINER OF A ROOM.",
                         "YOU SEIZE EVERY OPPORTUNITY YOU CAN TO RETURN TO IT AND EVADE THE PERILS OF THE OUTSIDE WORLD.",
                         "IT'S FUNCTIONALLY YOUR HOME BASE.",
@@ -311,35 +334,12 @@
                     "prompt_1" : "",
                     "response_1" : 
                     [
-                        "hello"
+                        ""
                     ],
-                    "prompt_2" : "temporary",
+                    "prompt_2" : "???",
                     "response_2" : 
                     [
-                        "hello"
-                    ]
-                }
-            },
-            "folder" : 
-            {
-                "pos" : [562, 542],
-                "img_path" : "./assets/main_room/folder.png",
-                "checkpoint" : 2,
-                "hidden" : 0,
-                "dialogue" : {
-                    "initial" :
-                    [
-                        "temp"
-                    ],
-                    "prompt_1" : "",
-                    "response_1" : 
-                    [
-                        
-                    ],
-                    "prompt_2" : "temp",
-                    "response_2" : 
-                    [
-                        "temp"
+                        ""
                     ]
                 }
             },
@@ -356,8 +356,8 @@
                         "YOU WANT THAT TO CHANGE.",
                         "YOU WANT TO CHANGE THAT.",
                         "MAYBE NOT RIGHT NOW, BECAUSE YOU NEED TO GIVE YOURSELF TIME TO PROCESS.",
-                        "BUT YOU’LL PUT UP YOUR POLAROIDS, A TRUE NORTH TO FOLLOW DURING THIS MIGRATION.",
-                        "AND NEXT TIME, YOU’LL SAY YOU’LL BE AT DINNER.",
+                        "BUT YOU'LL PUT UP YOUR POLAROIDS, A TRUE NORTH TO FOLLOW DURING THIS MIGRATION.",
+                        "AND NEXT TIME, YOU'LL SAY YOU'LL BE AT DINNER.",
                         "...",
                         "THIS IS THE CLOSEST YOU'VE EVER FELT TO HOPEFUL.",
                         "YOU HAVE TO BELIEVE YOU CAN GET CLOSER."
@@ -365,12 +365,12 @@
                     "prompt_1" : "",
                     "response_1" : 
                     [
-                        "temp"
+                        ""
                     ],
-                    "prompt_2" : "temp",
+                    "prompt_2" : "???",
                     "response_2" : 
                     [
-                        "temp"
+                        ""
                     ]
                 }
             }
