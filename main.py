@@ -74,7 +74,7 @@ class World():
         self.sprites.add(
             Button(self, "./assets/menu/start.png", (480, 620), lambda: self.load_intro()),
             Button(self, "./assets/menu/skip.png", (900, 650), lambda: self.load_main_room())
-                         )
+                    )
 
     def load_intro(self):
         self.state = "intro_sequence"
