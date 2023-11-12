@@ -15,7 +15,7 @@ class DialogBox(pg.sprite.Sprite):
         self.dialogue = dialogue
 
         self.lines_index = 0
-        self.total_lines = len(self.dialogue["initial"]) + 1
+        self.total_lines = len(self.dialogue["initial"])
 
         self.font = pg.font.Font("./assets/november.ttf", 25)
 
@@ -35,7 +35,6 @@ class DialogBox(pg.sprite.Sprite):
         
 
     def update(self):
-        # TODO: state updates
 
         if self.state == "initial":
             # display initial dialogue text as user clicks through
@@ -43,46 +42,53 @@ class DialogBox(pg.sprite.Sprite):
             self.draw_lines(line_segments)
 
         elif self.state == "prompt":
-            text_prompt_1 = self.font.render(self.dialogue["prompt_1"], True, (0, 0, 0))
-            text_prompt_2 = self.font.render(self.dialogue["prompt_2"], True, (0, 0, 0))
+            text_prompt_1 = self.font.render(self.dialogue["prompt_1"], True, (50, 50, 100))
+            text_prompt_2 = self.font.render(self.dialogue["prompt_2"], True, (50, 50, 100))
 
-            # TODO generalize these, and ffs draw a box around them
-            self.image.blit(text_prompt_1, (5, self.rect.height - 55))
-            self.image.blit(text_prompt_2, (5, self.rect.height - 25))
+            self.image.blit(text_prompt_1, (5, self.rect.height - 65))
+            self.image.blit(text_prompt_2, (5, self.rect.height - 30))
 
         else: # response
             # display response text as user clicks through
             line_segments = break_line(self, self.dialogue[self.chosen_response][self.lines_index])
             self.draw_lines(line_segments)
             
-            
-    def advance_text(self):
-        if self.lines_index >= self.total_lines:
-            self.world.sprites.remove(self)
-            self.world.set_world_state("idle_main_room")
-        else:
-            self.text_surface = self.font.render(self.dialogue["initial"][self.lines_index], True, (0, 0, 0))
-            
     def check_click(self, p: tuple[int, int]):
         if self.rect.collidepoint(p):
             if self.state == "initial":
                 # advance text
                 self.lines_index += 1
-                self.advance_text()                
+                if self.lines_index >= self.total_lines:
+                    self.world.sprites.remove(self)
+                    self.world.set_world_state("idle_main_room")
+                else:
+                    self.text_surface = self.font.render(self.dialogue["initial"][self.lines_index], True, (0, 0, 0))                
                 # advance state if done with initial dialogue
                 if self.lines_index == len(self.dialogue["initial"]) - 1:
                     self.state = "prompt"
 
             elif self.state == "prompt":
-                # if statement that sets chosen_response based on where it was clicked
-                self.chosen_response = "response_1"
-
-                self.total_lines += len(self.dialogue[self.chosen_response])
-                self.state = "response"
+                if p[1] < self.rect.height - 65:
+                    # clicked outside of either option
+                    pass
+                else:
+                    self.lines_index += 1
+                    # do stuff based on which option player clicked
+                    if p[1] < self.rect.height - 40:
+                        self.chosen_response = "response_1"
+                    else:
+                        self.chosen_response = "response_2"
+                    self.lines_index = 0
+                    self.total_lines = len(self.dialogue[self.chosen_response])
+                    self.state = "response"
 
             else: # response
                 self.lines_index += 1
-                self.advance_text()
+                if self.lines_index >= self.total_lines:
+                    self.world.sprites.remove(self)
+                    self.world.set_world_state("idle_main_room")
+                else:
+                    self.text_surface = self.font.render(self.dialogue[self.chosen_response][self.lines_index], True, (0, 0, 0))            
 
 
 def break_line(self, line):
