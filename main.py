@@ -137,7 +137,7 @@ class MenuButton(pg.sprite.Sprite):
 
 
 class RoomObject(pg.sprite.Sprite):
-    def __init__(self, world: World, center: tuple, lines: list[str], checkpoint: int, label: str):    
+    def __init__(self, world: World, topleft: tuple, lines: list[str], checkpoint: int, label: str):    
         pg.sprite.Sprite.__init__(self)
         self.world = world
 
@@ -145,7 +145,7 @@ class RoomObject(pg.sprite.Sprite):
         self.asset_active = pg.image.load(f"./assets/main_room/{label}_active.png")
         self.image = self.asset
         self.rect = self.image.get_rect()
-        self.rect.center = center
+        self.rect.topleft = topleft
         
         self.lines = lines
         self.checkpoint = checkpoint

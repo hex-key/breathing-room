@@ -206,7 +206,7 @@
             },
             "poster" : 
             {
-                "pos" : [510, 120],
+                "pos" : [0, 0],
                 "img_path" : "./assets/main_room/poster.png",
                 "checkpoint" : 2,
                 "hidden" : 0,
