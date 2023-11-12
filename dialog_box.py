@@ -30,6 +30,6 @@ class DialogBox(pg.sprite.Sprite):
             self.lines_index += 1
             if self.lines_index >= self.lines_count:
                 self.world.sprites.remove(self)
-                self.world.state = "idle_main_room"
+                self.world.set_world_state("idle_main_room")
             else:
                 self.text_surface = self.font.render(self.lines[self.lines_index], True, (0, 0, 0))
