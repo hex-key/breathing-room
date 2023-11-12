@@ -20,94 +20,237 @@
             "YOU: for sure"
         ]
     },
-    
+
     "main_room" : 
     {
-        "textbooks" : 
+        "checkpoints" : 
         {
-            "pos" : [730, 560],
-            "img_path" : "./assets/main_room/textbooks.png",
-            "checkpoint" : 0,
-            "hidden" : 0,
-            "dialogue" : {
-                "initial" :
-                [
-                    "YOU RENTED THESE USED.",
-                    "THEY ARE CURRENTLY IN THE EXACT SAME STATE OF USE YOU BOUGHT THEM IN.",
-                    "MAYBE IF YOU OPENED ONE, YOU WOULD UNDERSTAND CHEMISTRY. ALAS, YOU DO NOT HAVE THE STRENGTH.",
-                    "WHAT WILL YOU DO NOW?"
-                ],
-                "prompt_1" : "BACKPACK, I NEED YOUR HELP",
-                "response_1" : 
-                [
-                    "YOU STUFF THEM INTO YOUR BOOKBAG.",
-                    "NOW IT WILL BE HEAVIER."
-                ],
-                "prompt_2" : "ELF ON THE…",
-                "response_2" : 
-                [
-                    "YOU PLACE THEM ON A SHELF IN NO PARTICULAR ORDER."
-                ]
-            }
+            "checkpoint_1" :
+            [
+                "YOU HAVE NOW SUCCESSFULLY EXECUTED THE DECLUTTERING.",
+                "PERHAPS NOT THE MOST DECLUTTERY OF DECLUTTERINGS.",
+                "BUT A DECLUTTERING REGARDLESS.",
+                "THERE'S NOTHING ELSE YOU STRICTLY HAVE TO DO.",
+                "YOU CAN GET DINNER WITH THEM NOW.",
+                ".",
+                "..",
+                "...",
+                "........."
+            ],
+            "checkpoint_2" :
+            [
+
+            ],
+            "checkpoint_3" :
+            [
+
+            ]
         },
 
-        "papers" : 
-        {
-            "pos" : [550, 650],
-            "img_path" : "./assets/main_room/papers.png",
-            "checkpoint" : 0,
-            "hidden" : 0,
-            "dialogue" : {
-                "initial" :
-                [
-                    "SOME OF THESE ARE FLYERS FROM CLUBS AROUND CAMPUS.",
-                    "DURING ORIENTATION, YOU'D SMILED AND SAID YOU'D FOLLOW THEM ON INSTAGRAM.",
-                    "OTHERS ARE YOUR CLASS SYLLABI.",
-                    "ON THE FIRST DAY, YOU ANNOTATED THEM THOROUGHLY FOR FUTURE REFERENCE.",
-                    "THE INK IS SMUDGED.",
-                    "WHAT WILL YOU DO NOW?"
-                ],
-                "prompt_1" : "REDUCE, REUSE, RECYCLE",
-                "response_1" : 
-                [
-                    "YOU PUT THEM IN YOUR RECYCLING BIN.",
-                    "NOW YOU JUST HAVE TO REMEMBER TO TAKE THE RECYCLING OUT."
-                ],
-                "prompt_2" : "FOLDER? I HARDLY KNOW HER",
-                "response_2" : 
-                [
-                    "YOU DIG A FOLDER OUT OF YOUR BOOKBAG AND SHOVE THE PAPERS IN.",
-                    "AT LONG LAST, THE FOLDER MAY FULFILL ITS PURPOSE."
-                ]
-            }
-        },
+        "objects" : {
 
-        "laundry" : 
-        {
-            "pos" : [240, 630],
-            "img_path" : "./assets/main_room/laundry.png",
-            "checkpoint" : 0,
-            "hidden" : 0,
-            "dialogue" : {
-                "initial" :
-                [
-                    "YOU WERE SO PROUD OF YOURSELF FOR DOING YOUR LAUNDRY...",
-                    "WHAT WILL YOU DO NOW?"
-                ],
-                "prompt_1" : "TO THE HAMPER IT GOES",
-                "response_1" : 
-                [
-                    "YOU PUT YOUR CLOTHES BACK INTO YOUR HAMPER.",
-                    "YOU DON'T KNOW WHERE YOU'LL PUT YOUR DIRTY LAUNDRY NOW.",
-                    "BUT AT LEAST IT'S SORTED OUT TEMPORARILY."
-                ],
-                "prompt_2" : "THE OL' JUNK DRAWER",
-                "response_2" : 
-                [
-                    "YOU TAKE A HEAP OF CLOTHES, DUMP IT ALL IN YOUR DRESSER, AND CLOSE THE DRAWER.",
-                    "OUT OF SIGHT, OUT OF MIND."
-                ]
+            "textbooks" : 
+            {
+                "pos" : [730, 560],
+                "img_path" : "./assets/main_room/textbooks.png",
+                "checkpoint" : 0,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [
+                        "YOU RENTED THESE USED.",
+                        "THEY ARE CURRENTLY IN THE EXACT SAME STATE OF USE YOU BOUGHT THEM IN.",
+                        "MAYBE IF YOU OPENED ONE, YOU WOULD UNDERSTAND CHEMISTRY. ALAS, YOU DO NOT HAVE THE STRENGTH.",
+                        "WHAT WILL YOU DO NOW?"
+                    ],
+                    "prompt_1" : "BACKPACK, I NEED YOUR HELP",
+                    "response_1" : 
+                    [
+                        "YOU STUFF THEM INTO YOUR BOOKBAG.",
+                        "NOW IT WILL BE HEAVIER."
+                    ],
+                    "prompt_2" : "ELF ON THE…",
+                    "response_2" : 
+                    [
+                        "YOU PLACE THEM ON A SHELF IN NO PARTICULAR ORDER."
+                    ]
+                }
+            },
+    
+            "papers" : 
+            {
+                "pos" : [550, 650],
+                "img_path" : "./assets/main_room/papers.png",
+                "checkpoint" : 0,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [
+                        "SOME OF THESE ARE FLYERS FROM CLUBS AROUND CAMPUS.",
+                        "DURING ORIENTATION, YOU'D SMILED AND SAID YOU'D FOLLOW THEM ON INSTAGRAM.",
+                        "OTHERS ARE YOUR CLASS SYLLABI.",
+                        "ON THE FIRST DAY, YOU ANNOTATED THEM THOROUGHLY FOR FUTURE REFERENCE.",
+                        "THE INK IS SMUDGED.",
+                        "WHAT WILL YOU DO NOW?"
+                    ],
+                    "prompt_1" : "REDUCE, REUSE, RECYCLE",
+                    "response_1" : 
+                    [
+                        "YOU PUT THEM IN YOUR RECYCLING BIN.",
+                        "NOW YOU JUST HAVE TO REMEMBER TO TAKE THE RECYCLING OUT."
+                    ],
+                    "prompt_2" : "FOLDER? I HARDLY KNOW HER",
+                    "response_2" : 
+                    [
+                        "YOU DIG A FOLDER OUT OF YOUR BOOKBAG AND SHOVE THE PAPERS IN.",
+                        "AT LONG LAST, THE FOLDER MAY FULFILL ITS PURPOSE."
+                    ]
+                }
+            },
+    
+            "laundry" : 
+            {
+                "pos" : [240, 630],
+                "img_path" : "./assets/main_room/laundry.png",
+                "checkpoint" : 0,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [
+                        "YOU WERE SO PROUD OF YOURSELF FOR DOING YOUR LAUNDRY.",
+                        "WHAT WILL YOU DO NOW?"
+                    ],
+                    "prompt_1" : "TO THE HAMPER IT GOES",
+                    "response_1" : 
+                    [
+                        "YOU PUT YOUR CLOTHES BACK INTO YOUR HAMPER.",
+                        "YOU DON'T KNOW WHERE YOU'LL PUT YOUR DIRTY LAUNDRY NOW.",
+                        "BUT AT LEAST IT'S SORTED OUT TEMPORARILY."
+                    ],
+                    "prompt_2" : "THE OL' JUNK DRAWER",
+                    "response_2" : 
+                    [
+                        "YOU TAKE A HEAP OF CLOTHES, DUMP IT ALL IN YOUR DRESSER, AND CLOSE THE DRAWER.",
+                        "OUT OF SIGHT, OUT OF MIND."
+                    ]
+                }
+            },
+            "vitamins" : 
+            {
+                "pos" : [350, 340],
+                "img_path" : "./assets/main_room/vitamins.png",
+                "checkpoint" : 1,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [
+                        
+                    ],
+                    "prompt_1" : "",
+                    "response_1" : 
+                    [
+                        
+                    ],
+                    "prompt_2" : "",
+                    "response_2" : 
+                    [
+                        
+                    ]
+                }
+            },
+            "winter" : 
+            {
+                "pos" : [800, 420],
+                "img_path" : "./assets/main_room/winter.png",
+                "checkpoint" : 1,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [
+                        
+                    ],
+                    "prompt_1" : "",
+                    "response_1" : 
+                    [
+                        
+                    ],
+                    "prompt_2" : "",
+                    "response_2" : 
+                    [
+                        
+                    ]
+                }
+            },
+            "stuffies" : 
+            {
+                "pos" : [600, 350],
+                "img_path" : "./assets/main_room/stuffies.png",
+                "checkpoint" : 1,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [
+                        
+                    ],
+                    "prompt_1" : "",
+                    "response_1" : 
+                    [
+                        
+                    ],
+                    "prompt_2" : "",
+                    "response_2" : 
+                    [
+                        
+                    ]
+                }
+            },
+            "poster" : 
+            {
+                "pos" : [0, 0],
+                "img_path" : "./assets/main_room/poster.png",
+                "checkpoint" : 2,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [
+                        
+                    ],
+                    "prompt_1" : "",
+                    "response_1" : 
+                    [
+                        
+                    ],
+                    "prompt_2" : "",
+                    "response_2" : 
+                    [
+                        
+                    ]
+                }
+            },
+            "mirror" : 
+            {
+                "pos" : [190, 400],
+                "img_path" : "./assets/main_room/mirror.png",
+                "checkpoint" : 2,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [
+                        
+                    ],
+                    "prompt_1" : "",
+                    "response_1" : 
+                    [
+                        
+                    ],
+                    "prompt_2" : "",
+                    "response_2" : 
+                    [
+                        
+                    ]
+                }
             }
         }
+
     }
 }

@@ -4,29 +4,37 @@ from pygame import sprite
 #need to adapt this to work for the initial screen prompts and the checkpoint prompts
 
 class DialogBox(pg.sprite.Sprite):
-    def __init__(self, x: int, y: int, width: int, height: int, dialogue: list[str], world):
+    def __init__(self, x: int, y: int, width: int, height: int, type: str, dialogue: list[str], world, color: tuple[int, int, int]=(255, 255, 255)):
         pg.sprite.Sprite.__init__(self)
         self.x = x
         self.y = y
         self.width = width
         self.height = height
         self.world = world
-        
         self.dialogue = dialogue
 
         self.lines_index = 0
         self.total_lines = len(self.dialogue["initial"])
-
+        self.color = color
         self.font = pg.font.Font("./assets/november.ttf", 25)
-
         self.image = pg.Surface((self.width, self.height))
         self.rect = pg.Rect(self.x, self.y, self.width, self.height)
+
+        if type == "room_object":
+            self.lines = self.dialogue["initial"]
+        if type == "checkpoint":
+            self.lines = self.dialogue
+            self.rect.center = pg.display.get_surface().get_rect().center
+        
+        self.lines_index = 0
+        self.lines_count = len(self.lines)
+
         
         # options: initial, prompt, response
         self.state = "initial"
     
     def draw_lines(self, line_segments: list[str]):
-        self.image.fill((255, 255, 255))
+        self.image.fill((self.color))
         height_index = 0
         for segment in line_segments:
             text = self.font.render(segment, True, (0, 0, 0))

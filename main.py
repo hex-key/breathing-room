@@ -54,92 +54,147 @@ class World():
         with open("./dialogue.json", "r") as f:
             self.dialogue = json.load(f)
         self.intro_dialogue = self.dialogue["intro"]
-        self.room_dialogue = self.dialogue["main_room"]
+        self.room_objects_dialogue = self.dialogue["main_room"]["objects"]
+        self.room_checkpoints_dialogue = self.dialogue["main_room"]["checkpoints"]
         self.app = app
 
         self.sprites = pg.sprite.Group()
 
-        # World state options
-        #   menu                    Starting menu, prompt to launch intro_sequence
-        #   fade                    World is actively fading, halt all input handling
-        #   intro_sequence          The intro sequence is playing
-        #   idle_main_room          The player is investigating, next state is active_dialogue once they click a sprite
-        #   dialogue_main_room      A main roomdialogue box is on screen and currently has focus
+        # World state options enumerated later
         self.state = "menu"
 
         self.current_checkpoint = 0
 
     def load_menu(self):
-        self.state = "menu"
+        self.set_world_state("menu")
         self.app.bg_image = pg.image.load("./assets/menu/bg.png")
         self.sprites.add(
-            Button(self, "./assets/menu/start.png", (480, 620), lambda: self.load_intro()),
-            Button(self, "./assets/menu/skip.png", (900, 650), lambda: self.load_main_room())
+            MenuButton(self, "./assets/menu/start.png", (480, 620), lambda: self.load_intro()),
+            MenuButton(self, "./assets/menu/skip.png", (900, 650), lambda: self.load_main_room())
                     )
 
     def load_intro(self):
-        self.state = "fade"
+        self.set_world_state("fade")
         def f():
-            self.state = "intro_sequence"
+            self.set_world_state("intro_sequence")
             self.sprites.empty()
             self.app.bg_image = pg.image.load("./assets/intro/bg.png")
             #self.sprites.add(DBox(100, 600, 800, 150, self.intro_dialogue, self))
+        self.sprites.add(Fade(self, f))
         
         
     def load_main_room(self):
-        self.state = "idle_main_room"
-        self.sprites.empty()
-        self.app.bg_image = pg.image.load("./assets/main_room/bg.png")
-        for key, s in self.room_dialogue.items():
-            self.sprites.add(Button(self, s["img_path"], s["pos"], None, s["dialogue"], key))
+        self.set_world_state("fade")
+        def f():
+            self.sprites.empty()
+            self.app.bg_image = pg.image.load("./assets/main_room/bg.png")
+            for key, s in self.room_objects_dialogue.items():
+                self.sprites.add(RoomObject(self, s["pos"], s["dialogue"], s["checkpoint"], key))
+            self.set_world_state("idle_main_room")
+        self.sprites.add(Fade(self, f))
     
+    def load__next_checkpoint(self):
+        self.set_world_state("fade")
+        def f():
+            self.current_checkpoint += 1
+            self.set_world_state("idle_main_room")
+        self.sprites.add(Fade(self, f))
+
+    # World state options
+    #   menu                    Starting menu, prompt to launch intro_sequence
+    #   fade                    World is actively fading, halt all input handling
+    #   intro_sequence          The intro sequence is playing
+    #   idle_main_room          The player is investigating, next state is active_dialogue once they click a sprite
+    #   dialogue_main_room      A main room dialogue box is on screen and currently has focus
+    #   checkpoint_main_room    Main room checkpoint dialogue is on screen
     def set_world_state(self, state: str):
-        self.state = state
-        if state == "idle_main_room":
-            for s in self.sprites:
-                if isinstance(s, Button):
-                    if s.state == "clicked":
-                        s.set_state("fading")
-
-
-class Button(pg.sprite.Sprite):
-    def __init__(self, world: World, img_path: str, center: tuple, action: Callable, lines: list[str]=None, label: str=None):    
+        match state:
+            case "menu" | "fade" | "intro_sequence" | "dialogue_main_room":
+                self.state = state
+            case "idle_main_room":
+                self.state = state
+                for s in self.sprites:
+                    if isinstance(s, RoomObject):
+                        if s.state == "clicked":
+                            s.set_state("fading")
+                self.refresh_checkpoints()
+            case "checkpoint_main_room":
+                self.sprites.add(DBox(100, 200, 500, 200, "checkpoint", self.room_checkpoints_dialogue[f"checkpoint_{self.current_checkpoint+1}"], self, (221, 255, 252)))
+            case _:
+                raise Exception("Improper world state passed to set_world_state()")
+            
+    def refresh_checkpoints(self):
+        remaining_active = 0
+        for s in self.sprites:
+            if isinstance(s, RoomObject):
+                s.set_active(self.current_checkpoint)
+                if s.image == s.asset_active:
+                    remaining_active += 1
+        if remaining_active == 1:
+            self.set_world_state("checkpoint_main_room")
+        
+class MenuButton(pg.sprite.Sprite):
+    def __init__(self, world: World, img_path: str, center: tuple, action: Callable):    
         pg.sprite.Sprite.__init__(self)
         self.world = world
-
         self.image = pg.image.load(img_path)
         self.rect = self.image.get_rect()
         self.rect.center = center
-        
         self.action = action
-        self.lines = lines
 
-        self.label = label
-        # Possible button states
-        #   visible     Button is regularly displayed
-        #   clicked     Button has been clicked, respective dialogue is running
-        #   fading      Button is being faded to clear
-        self.state = "visible"
-        self.alpha = 255
-    
     def update(self):
-        if self.state == "fading":
-            self.alpha -= 0.5
-            self.image.fill((255, 255, 255, self.alpha), None, pg.BLEND_RGBA_MULT)
-            if self.alpha <= 0:
-                self.world.sprites.remove(self)
+        pass
 
     def check_click(self, p: tuple[int, int]):
         if self.rect.collidepoint(p):
-            if self.action is not None:
-                self.action()
-            else:
-                self.state = "clicked"
-                self.world.set_world_state("main_room_dialogue")
-                self.world.sprites.add(DBox(70, 70, 500, 200, self.lines, self.world))
+            self.action()
+
+
+class RoomObject(pg.sprite.Sprite):
+    def __init__(self, world: World, topleft: tuple, lines: list[str], checkpoint: int, label: str):    
+        pg.sprite.Sprite.__init__(self)
+        self.world = world
+
+        self.asset = pg.image.load(f"./assets/main_room/{label}.png")
+        self.asset_active = pg.image.load(f"./assets/main_room/{label}_active.png")
+        self.image = self.asset
+        self.rect = self.image.get_rect()
+        self.rect.topleft = topleft
+        
+        self.lines = lines
+        self.checkpoint = checkpoint
+        self.state = "visible"
+        self.alpha = 255
+
+    def set_active(self, checkpoint: int):
+        if checkpoint == self.checkpoint:
+            self.image = self.asset_active
+        else:
+            self.image = self.asset
     
+    def update(self):
+        if self.state == "fading":
+            self.alpha -= 5
+            self.image.set_alpha(self.alpha)
+            if self.alpha <= 10:
+                self.kill()
+
+    def check_click(self, p: tuple[int, int]):
+        if self.rect.collidepoint(p) and self.state == "visible" and self.world.state not in ("dialogue_main_room", "checkpoint_main_room") and (self.image == self.asset_active):
+            self.set_state("clicked")
+            self.world.set_world_state("dialogue_main_room")
+            self.world.sprites.add(DBox(70, 70, 500, 200, "room_object", self.lines, self.world))
+    
+    # Possible button states
+    #   visible     Button is regularly displayed
+    #   clicked     Button has been clicked, respective dialogue is running
+    #   fading      Button is being faded to clear
     def set_state(self, state):
-        self.state = state
+        match state:
+            case "visible" | "clicked" | "fading":
+                self.state = state
+            case _:
+                raise Exception("Improper state passed (button)")
 
 class Fade(pg.sprite.Sprite):
     def __init__(self, world: World, action: Callable):
@@ -151,12 +206,25 @@ class Fade(pg.sprite.Sprite):
         self.world = world
         self.action = action
 
+        self.rebound = False
+
     def update(self):
         self.image.fill((0, 0, 0, self.alpha))
-        self.alpha += 1
-        if self.alpha > 255:
-            self.direction *= -1
-            self.alpha += self.direction
+        if not self.rebound:
+            self.alpha += 3
+            if self.alpha > 245:
+                self.action()
+                self.world.sprites.add(self)
+                self.rebound = True
+        else:
+            self.alpha -= 3
+            if self.alpha < 10:
+                self.world.sprites.remove(self)
+    
+    def check_click(self, p: tuple[int, int]):
+        return
+
+
 
 def main():
     os.environ['SDL_VIDEO_CENTERED'] = '1'
