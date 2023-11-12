@@ -45,14 +45,26 @@
                 "YOU'RE NOT PARTICULARLY CLOSE WITH ANY OF THEM...",
                 "...",
                 "PROBABLY BETTER TO STAY HERE FOR NOW. RIGHT?"
+                "prompt_1" : "...",
+                    "response_1" : 
+                    [
+                        "PROBABLY BETTER TO STAY HERE FOR NOW. RIGHT?"
+                    ]
             ],
             "checkpoint_3" :
             [
-                "checkpoint 3 text"
-            ],
-            "checkpoint_4" :
-            [
-                "ending text"
+                "IT FEELS LIKE THE GROUND IS SINKING BENEATH YOUR FEET.",
+                "YOU FEEL THIS A LOT.",
+                "YOU DIDN’T KNOW WHAT IT WAS BEFORE.",
+                "MAYBE YOU’RE LONELY.",
+                "AND MAYBE WHILE YOU WERE STRUGGLING TO REACH OUT...",
+                "AGONIZING OVER WHETHER OR NOT IT WAS RIGHT...",
+                "IT JUST MADE YOU LONELIER."
+                "IT’S A HARD THING TO DO.",
+                "BUT IS PUTTING IT OFF REALLY WORTH BEING SO ALONE?",
+                "YOU HAVE TO ADMIT IT TO YOURSELF.",
+                "...",
+                "NO."
             ]
         },
 
@@ -158,19 +170,8 @@
                         "AS IN, THIS EXPLAINS A LOT, ACTUALLY.",
                         "WHAT WILL YOU DO?"
                     ],
-                    "prompt_1" : "",
+                    "prompt_1" : "TAKE A PILL IN IBIZA",
                     "response_1" : 
-                    [
-                        "SEE, THIS WOULD BE THE SMART THING TO DO.",
-                        "WHEN YOUR ROOM IS CLUTTERED, YOU'RE SUPPOSED TO CLEAN IT.",
-                        "WHEN YOUR BODY IS MALNOURISHED, YOU'RE SUPPOSED TO...PUT NUTRIENTS IN IT.",
-                        "...",
-                        "WHY CAN'T YOU DO IT?",
-                        "IT'S SO SIMPLE.",
-                        "WHY CAN'T YOU DO IT?"
-                    ],
-                    "prompt_2" : "TAKE A PILL IN IBIZA",
-                    "response_2" : 
                     [
                         "SEE, THIS WOULD BE THE SMART THING TO DO.",
                         "WHEN YOUR ROOM IS CLUTTERED, YOU'RE SUPPOSED TO CLEAN IT.",
@@ -197,55 +198,51 @@
                         "THEY'RE COZY. YOU LIKE THEM.",
                         "WHAT WILL YOU DO?"
                     ],
-                    "prompt_1" : "",
+                    "prompt_1" : "[BUNDLE UP.]",
                     "response_1" : 
                     [
                         "...",
                         "YOU STARE FOR A WHILE.",
-                        "YOU'RE NOT DOING ANYTHING ELSE.",
+                        "YOU’RE NOT DOING ANYTHING ELSE.",
                         "THERE IS NO REASON FOR YOU NOT TO BE DOING THIS RIGHT NOW.",
-                        "AND YET, YOU'RE NOT DOING THIS RIGHT NOW.",
-                        "YOU STARE SOME MORE.",
-                        "THEN YOU SPOT SOMETHING THAT LOOKS LIKE...A BUNNY EAR?",
-                        "OH. RIGHT.",
-                        "YOU OPEN WHAT WOULD HAVE BEEN A TREASURE CHEST OF FRIENDS TO YOUR CHILD SELF.",
-                        "YOU REMEMBER SITTING YOUR STUFFED ANIMALS IN A CIRCLE AROUND YOU FOR DEEP CONVERSATION AND TEA.",
-                        "YOU REMEMBER HOLDING THEM.",
-                        "YOU REMEMBER IMAGINING THEY COULD HOLD YOU TOO.",
-                        "...",
-                        "YOU GOT A FRIEND IN ME...?",
-                        "OKAY, NOW THAT'S JUST RIDICULOUS.",
-                        "YOU WILL NOT BE RECREATING TOY STORY.",
-                        "YOU ARE NOT DESPERATE ENOUGH TO ATTEMPT TO FIND COMPANIONSHIP IN INANIMATE OBJECTS.",
-                        "WHAT YOU WILL BE DOING INSTEAD IS...",
-                        "..."
-                    ],
-                    "prompt_2" : "BUNDLE UP",
-                    "response_2" : 
-                    [
-                        "...",
-                        "YOU STARE FOR A WHILE.",
-                        "YOU'RE NOT DOING ANYTHING ELSE.",
-                        "THERE IS NO REASON FOR YOU NOT TO BE DOING THIS RIGHT NOW.",
-                        "AND YET, YOU'RE NOT DOING THIS RIGHT NOW.",
-                        "YOU STARE SOME MORE.",
-                        "THEN YOU SPOT SOMETHING THAT LOOKS LIKE...A BUNNY EAR?",
-                        "OH. RIGHT.",
-                        "YOU OPEN WHAT WOULD HAVE BEEN A TREASURE CHEST OF FRIENDS TO YOUR CHILD SELF.",
-                        "YOU REMEMBER SITTING YOUR STUFFED ANIMALS IN A CIRCLE AROUND YOU FOR DEEP CONVERSATION AND TEA.",
-                        "YOU REMEMBER HOLDING THEM.",
-                        "YOU REMEMBER IMAGINING THEY COULD HOLD YOU TOO.",
-                        "...",
-                        "YOU GOT A FRIEND IN ME...?",
-                        "OKAY, NOW THAT'S JUST RIDICULOUS.",
-                        "YOU WILL NOT BE RECREATING TOY STORY.",
-                        "YOU ARE NOT DESPERATE ENOUGH TO ATTEMPT TO FIND COMPANIONSHIP IN INANIMATE OBJECTS.",
-                        "WHAT YOU WILL BE DOING INSTEAD IS...",
-                        "..."
+                        "AND YET, YOU’RE NOT DOING THIS RIGHT NOW.",
+                        "STAYING HERE WAS SUPPOSED TO BE THE EASIER CHOICE.",
+                        "BUT IT SEEMS LIKE EVEN WHEN YOU’RE SEQUESTERED IN YOUR ROOM, AWAY FROM THE WORLD...",
+                        "NOTHING CAN JUST BE SIMPLE."
                     ]
                 }
             },
             "stuffies" : 
+            {
+                "pos" : [370, 614],
+                "img_path" : "./assets/main_room/stuffies.png",
+                "checkpoint" : 1,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [
+                        "SPILLING OUT OF THE SIDE OF THIS BOX IS SOMETHING THAT LOOKS LIKE…A PAW?"
+                        "OH. RIGHT.",
+                        "YOU OPEN WHAT WOULD HAVE BEEN A TREASURE CHEST OF FRIENDS TO YOUR CHILD SELF.",
+                        "YOU REMEMBER SITTING YOUR STUFFED ANIMALS IN A CIRCLE AROUND YOU FOR DEEP CONVERSATION AND TEA.",
+                        "YOU REMEMBER HOLDING THEM.",
+                        "YOU REMEMBER IMAGINING THEY COULD HOLD YOU TOO.",
+                        "WHAT WILL YOU DO?"
+                    ],
+                    "prompt_1" : "[YOU GOT A FRIEND IN ME?]",
+                    "response_1" : 
+                    [
+                        "OKAY, NOW THAT’S JUST RIDICULOUS.",
+                        "YOU WILL NOT BE RECREATING TOY STORY.",
+                        "YOU ARE NOT DESPERATE ENOUGH TO ATTEMPT TO FIND COMPANIONSHIP IN INANIMATE OBJECTS.",
+                        "WHAT YOU WILL BE DOING INSTEAD IS…",
+                        "...",
+                        "...",
+                        "HM."
+                    ]
+                }
+            },
+            "pictures" : 
             {
                 "pos" : [65, 613],
                 "img_path" : "./assets/main_room/stuffies.png",
@@ -254,7 +251,33 @@
                 "dialogue" : {
                     "initial" :
                     [
-                        "temporary"
+                        "YOU SPEND MOST OF YOUR TIME IN THIS TINY SHIPPING CONTAINER OF A ROOM.",
+                        "YOU SEIZE EVERY OPPORTUNITY YOU CAN TO RETURN TO IT AND EVADE THE PERILS OF THE OUTSIDE WORLD.",
+                        "IT’S FUNCTIONALLY YOUR HOME BASE.",
+                        "BUT THAT DOESN’T MAKE IT...HOME.",
+                        "IT’S BEEN TWO MONTHS AND YOU HAVEN’T PUT A SINGLE DECORATION ON THE WALL.",
+                        "NOT EVEN THE POLAROIDS OF FRIENDS THAT YOU CAREFULLY SLOTTED INTO A FOLDER BEFORE YOU LEFT.",
+                        "HOPING THEY WOULD STAY PERFECTLY PRISTINE UNTIL YOU GOT HERE.",
+                        "THIS ROOM ISN’T YOUR HOME.",
+                        "IT’S MORE LIKE A BUNKER.",
+                        "HOME IS…BACK HOME.",
+                        "HOME IS WITH THE PEOPLE IN THESE PICTURES, PEOPLE YOU ALREADY KNOW.",
+                        "AND HERE’S THE WEIRD THING: YOU DO WANT TO FIND PEOPLE HERE.",
+                        "SOMETIMES YOU EVEN THINK YOU’VE ALREADY FOUND THEM, AND YOU’RE JUST PUTTING OFF ACTUALIZING THOSE RELATIONSHIPS.",
+                        "(LIKE, FOR EXAMPLE, BY “DECLUTTERING” INSTEAD OF ACCEPTING A DINNER INVITATION…)",
+                        "SO YES, YOU REALLY, REALLY WANT TO FIND PEOPLE.",
+                        "BUT THAT DOESN’T MAKE YOU LESS SCARED.",
+                        "ESPECIALLY AFTER SO LONG BEING ABLE TO DEPEND ON THE SAME PEOPLE.",
+                        "AFTER SO LONG NOT HAVING TO START THE WHOLE FINDING PEOPLE PROCESS ALL OVER AGAIN.",
+                        "YOU’RE SCARED OF WHAT WILL HAPPEN IF YOU ACTUALLY LET SOMEONE IN.",
+                        "IF YOU ACTUALLY LET THIS PLACE BECOME YOUR HOME.",
+                        "BECAUSE IT FEELS LIKE LEAVING YOUR OLD HOME BEHIND.",
+                        "AND BECAUSE FINDING THOSE KINDS OF FRIENDSHIPS AGAIN FEELS IMPOSSIBLE.",
+                        "IT’S HARD.",
+                        "IT’S HARD TO SAY HI. TO SAY YES, I’LL BE AT DINNER.",
+                        "IT’S SIMPLE.",
+                        "IT’S STILL HARD.",
+                        "WHAT WILL YOU DO NOW?"
                     ],
                     "prompt_1" : "",
                     "response_1" : 
@@ -323,17 +346,15 @@
                 "dialogue" : {
                     "initial" :
                     [
-                        
-                    ],
-                    "prompt_1" : "",
-                    "response_1" : 
-                    [
-                        
-                    ],
-                    "prompt_2" : "",
-                    "response_2" : 
-                    [
-                        
+                    "IT’S YOU.",
+                    "JUST YOU.",
+                    "YOU WANT THAT TO CHANGE.",
+                    "YOU WANT TO CHANGE THAT.",
+                    "MAYBE NOT RIGHT NOW, BECAUSE YOU NEED TO GIVE YOURSELF TIME TO PROCESS.",
+                    "BUT NEXT TIME, YOU’LL SAY YOU’LL BE AT DINNER.",
+                    "..."
+                    "THIS IS THE CLOSEST YOU’VE EVER FELT TO HOPEFUL.",
+                    "YOU HAVE TO BELIEVE YOU CAN GET CLOSER."
                     ]
                 }
             }

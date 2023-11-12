@@ -3,7 +3,7 @@ Project for HackUMass XI 🦣🥳🎈
 
 CONTRIBUTORS
 * iris chen, umass - dialogue boxes, github/git mastery, 什么?!?!
-* lance cheng, umass - cursor/bg/sprite implementation, dialogue, silly goofy moods
+* lance cheng, umass - cursor/bg implementation, dialogue, silly goofy moods
 * madi gudin, amherst - The Whole Interface, sprite implementation, general chadness
 * sam johar, amherst - art, dialogue, debugging genius, joy
 
