@@ -22,9 +22,12 @@ class DialogBox(pg.sprite.Sprite):
 
         if type == "room_object":
             self.lines = self.dialogue["initial"]
-        if type == "checkpoint":
+        elif type == "checkpoint":
             self.lines = self.dialogue
             self.rect.center = pg.display.get_surface().get_rect().center
+        elif type == "intro":
+            self.lines = self.dialogue
+            self.rect.center = (pg.display.get_surface().get_rect().centerx, pg.display.get_surface().get_rect().centery + 300)
         
         self.lines_index = 0
         self.total_lines = len(self.lines)
@@ -67,7 +70,12 @@ class DialogBox(pg.sprite.Sprite):
                 self.lines_index += 1
                 if self.lines_index >= self.total_lines:
                     self.world.sprites.remove(self)
-                    self.world.set_world_state("idle_main_room")
+                    if self.type == "room_object":
+                        self.world.set_world_state("idle_main_room")
+                    elif self.type == "checkpoint":
+                        self.world.load_next_checkpoint()
+                    elif self.type == "intro":
+                        self.world.load_main_room()
                 else:
                     self.text_surface = self.font.render(self.lines[self.lines_index], True, (0, 0, 0))                
                 # advance state if done with initial dialogue
@@ -95,10 +103,7 @@ class DialogBox(pg.sprite.Sprite):
                 self.lines_index += 1
                 if self.lines_index >= self.total_lines:
                     self.world.sprites.remove(self)
-                if self.type == "room_object":
                     self.world.set_world_state("idle_main_room")
-                elif self.type == "checkpoint":
-                    self.world.load_next_checkpoint()
                 else:
                     self.text_surface = self.font.render(self.lines[self.lines_index], True, (0, 0, 0))            
 

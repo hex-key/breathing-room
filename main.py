@@ -53,7 +53,7 @@ class World():
     def __init__(self, app: App):
         with open("./dialogue.json", "r") as f:
             self.dialogue = json.load(f)
-        self.intro_dialogue = self.dialogue["intro"]
+        self.intro_dialogue = self.dialogue["intro"]["dialogue"]
         self.room_objects_dialogue = self.dialogue["main_room"]["objects"]
         self.room_checkpoints_dialogue = self.dialogue["main_room"]["checkpoints"]
         self.app = app
@@ -79,7 +79,7 @@ class World():
             self.set_world_state("intro_sequence")
             self.sprites.empty()
             self.app.bg_image = pg.image.load("./assets/intro/bg.png")
-            #self.sprites.add(DBox(100, 600, 800, 150, self.intro_dialogue, self))
+            self.sprites.add(DBox(100, 200, 500, 200, "intro", self.intro_dialogue, self, (221, 255, 252)))
         self.sprites.add(Fade(self, f))
         
         
