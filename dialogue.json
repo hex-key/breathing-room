@@ -329,7 +329,8 @@
                         "IT'S HARD TO SAY HI. TO SAY YES, I'LL BE AT DINNER.",
                         "IT'S SIMPLE.",
                         "IT'S STILL HARD.",
-                        "WHAT WILL YOU DO NOW?"
+                        "WHAT WILL YOU DO NOW?",
+                        ""
                     ],
                     "prompt_1" : "",
                     "response_1" : 
@@ -360,7 +361,8 @@
                         "AND NEXT TIME, YOU'LL SAY YOU'LL BE AT DINNER.",
                         "...",
                         "THIS IS THE CLOSEST YOU'VE EVER FELT TO HOPEFUL.",
-                        "YOU HAVE TO BELIEVE YOU CAN GET CLOSER."
+                        "YOU HAVE TO BELIEVE YOU CAN GET CLOSER.",
+                        ""
                     ],
                     "prompt_1" : "",
                     "response_1" : 
