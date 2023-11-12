@@ -45,6 +45,16 @@
                 "YOU'RE NOT PARTICULARLY CLOSE WITH ANY OF THEM...",
                 "...",
                 "PROBABLY BETTER TO STAY HERE FOR NOW. RIGHT?"
+                "prompt_1" : "...",
+                    "response_1" : 
+                    [
+                        "PROBABLY BETTER TO STAY HERE FOR NOW. RIGHT?"
+                    ],
+                    "prompt_2" : "......",
+                    "response_2" : 
+                    [
+                        "DEFINITELY BETTER TO STAY HERE FOR NOW. RIGHT?"
+                    ]
             ],
             "checkpoint_3" :
             [
@@ -241,7 +251,7 @@
                     ]
                 }
             },
-            "stuffies" : 
+            "pictures" : 
             {
                 "pos" : [65, 613],
                 "img_path" : "./assets/main_room/stuffies.png",
@@ -250,7 +260,34 @@
                 "dialogue" : {
                     "initial" :
                     [
-                        "temporary"
+                        "YOU SPEND MOST OF YOUR TIME IN THIS TINY SHIPPING CONTAINER OF A ROOM.",
+                        "YOU SEIZE EVERY OPPORTUNITY YOU CAN TO RETURN TO IT AND EVADE THE PERILS OF THE OUTSIDE WORLD.",
+                        "IT’S FUNCTIONALLY YOUR HOME BASE.",
+                        "BUT THAT DOESN’T MAKE IT…HOME.",
+                        "IT’S BEEN TWO MONTHS AND YOU HAVEN’T PUT A SINGLE DECORATION ON THE WALL.",
+                        "NOT EVEN THE POLAROIDS OF FRIENDS THAT YOU CAREFULLY SLOTTED INTO A FOLDER BEFORE YOU LEFT.",
+                        "HOPING THEY WOULD STAY PERFECTLY PRISTINE UNTIL YOU GOT HERE.",
+                        "THIS ROOM ISN’T YOUR HOME.",
+                        "IT’S MORE LIKE A BUNKER.",
+                        "HOME IS…BACK HOME.",
+                        "HOME IS WITH THE PEOPLE IN THESE PICTURES, PEOPLE YOU ALREADY KNOW.",
+                        "AND HERE’S THE WEIRD THING: YOU DO WANT TO FIND PEOPLE HERE.",
+                        "SOMETIMES YOU EVEN THINK YOU’VE ALREADY FOUND THEM, AND YOU’RE JUST PUTTING OFF ACTUALIZING THOSE RELATIONSHIPS."
+                        "(LIKE, FOR EXAMPLE, BY “DECLUTTERING” INSTEAD OF ACCEPTING A DINNER INVITATION…)",
+                        "SO YES, YOU REALLY, REALLY WANT TO FIND PEOPLE.",
+                        "BUT THAT DOESN’T MAKE YOU LESS SCARED.",
+                        "ESPECIALLY AFTER SO LONG BEING ABLE TO DEPEND ON THE SAME PEOPLE.",
+                        "AFTER SO LONG NOT HAVING TO START THE WHOLE FINDING PEOPLE PROCESS ALL OVER AGAIN.",
+                        "YOU’RE SCARED OF WHAT WILL HAPPEN IF YOU ACTUALLY LET SOMEONE IN.",
+                        "IF YOU ACTUALLY LET THIS PLACE BECOME YOUR HOME.",
+                        "BECAUSE IT FEELS LIKE LEAVING YOUR OLD HOME BEHIND.",
+                        "AND BECAUSE FINDING THOSE KINDS OF FRIENDSHIPS AGAIN FEELS IMPOSSIBLE.",
+                        "IT’S HARD.",
+                        "IT’S HARD TO SAY HI. TO SAY YES, I’LL BE AT DINNER.",
+                        "IT’S SIMPLE.",
+                        "IT’S STILL HARD.",
+                        "WHAT WILL YOU DO NOW?"
+
                     ],
                     "prompt_1" : "",
                     "response_1" : 
