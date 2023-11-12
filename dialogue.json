@@ -45,11 +45,6 @@
                 "YOU'RE NOT PARTICULARLY CLOSE WITH ANY OF THEM...",
                 "...",
                 "PROBABLY BETTER TO STAY HERE FOR NOW. RIGHT?"
-                "prompt_1" : "...",
-                    "response_1" : 
-                    [
-                        "PROBABLY BETTER TO STAY HERE FOR NOW. RIGHT?"
-                    ]
             ],
             "checkpoint_3" :
             [
@@ -59,7 +54,7 @@
                 "MAYBE YOU’RE LONELY.",
                 "AND MAYBE WHILE YOU WERE STRUGGLING TO REACH OUT...",
                 "AGONIZING OVER WHETHER OR NOT IT WAS RIGHT...",
-                "IT JUST MADE YOU LONELIER."
+                "IT JUST MADE YOU LONELIER.",
                 "IT’S A HARD THING TO DO.",
                 "BUT IS PUTTING IT OFF REALLY WORTH BEING SO ALONE?",
                 "YOU HAVE TO ADMIT IT TO YOURSELF.",
@@ -221,7 +216,7 @@
                 "dialogue" : {
                     "initial" :
                     [
-                        "SPILLING OUT OF THE SIDE OF THIS BOX IS SOMETHING THAT LOOKS LIKE…A PAW?"
+                        "SPILLING OUT OF THE SIDE OF THIS BOX IS SOMETHING THAT LOOKS LIKE…A PAW?",
                         "OH. RIGHT.",
                         "YOU OPEN WHAT WOULD HAVE BEEN A TREASURE CHEST OF FRIENDS TO YOUR CHILD SELF.",
                         "YOU REMEMBER SITTING YOUR STUFFED ANIMALS IN A CIRCLE AROUND YOU FOR DEEP CONVERSATION AND TEA.",
@@ -242,10 +237,10 @@
                     ]
                 }
             },
-            "pictures" : 
+            "poster" : 
             {
                 "pos" : [65, 613],
-                "img_path" : "./assets/main_room/stuffies.png",
+                "img_path" : "./assets/main_room/poster.png",
                 "checkpoint" : 1,
                 "hidden" : 0,
                 "dialogue" : {
@@ -314,29 +309,6 @@
                     ]
                 }
             },
-            "poster" : 
-            {
-                "pos" : [285, 140],
-                "img_path" : "./assets/main_room/poster.png",
-                "checkpoint" : -1,
-                "hidden" : 0,
-                "dialogue" : {
-                    "initial" :
-                    [
-                        
-                    ],
-                    "prompt_1" : "",
-                    "response_1" : 
-                    [
-                        
-                    ],
-                    "prompt_2" : "",
-                    "response_2" : 
-                    [
-                        
-                    ]
-                }
-            },
             "mirror" : 
             {
                 "pos" : [190, 400],
@@ -352,7 +324,7 @@
                     "YOU WANT TO CHANGE THAT.",
                     "MAYBE NOT RIGHT NOW, BECAUSE YOU NEED TO GIVE YOURSELF TIME TO PROCESS.",
                     "BUT NEXT TIME, YOU’LL SAY YOU’LL BE AT DINNER.",
-                    "..."
+                    "...",
                     "THIS IS THE CLOSEST YOU’VE EVER FELT TO HOPEFUL.",
                     "YOU HAVE TO BELIEVE YOU CAN GET CLOSER."
                     ]
