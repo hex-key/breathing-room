@@ -134,6 +134,121 @@
                         "OUT OF SIGHT, OUT OF MIND."
                     ]
                 }
+            },
+            "vitamins" : 
+            {
+                "pos" : [350, 340],
+                "img_path" : "./assets/main_room/vitamins.png",
+                "checkpoint" : 1,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [
+                        
+                    ],
+                    "prompt_1" : "",
+                    "response_1" : 
+                    [
+                        
+                    ],
+                    "prompt_2" : "",
+                    "response_2" : 
+                    [
+                        
+                    ]
+                }
+            },
+            "winter" : 
+            {
+                "pos" : [800, 420],
+                "img_path" : "./assets/main_room/winter.png",
+                "checkpoint" : 1,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [
+                        
+                    ],
+                    "prompt_1" : "",
+                    "response_1" : 
+                    [
+                        
+                    ],
+                    "prompt_2" : "",
+                    "response_2" : 
+                    [
+                        
+                    ]
+                }
+            },
+            "stuffies" : 
+            {
+                "pos" : [600, 350],
+                "img_path" : "./assets/main_room/stuffies.png",
+                "checkpoint" : 1,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [
+                        
+                    ],
+                    "prompt_1" : "",
+                    "response_1" : 
+                    [
+                        
+                    ],
+                    "prompt_2" : "",
+                    "response_2" : 
+                    [
+                        
+                    ]
+                }
+            },
+            "poster" : 
+            {
+                "pos" : [510, 120],
+                "img_path" : "./assets/main_room/poster.png",
+                "checkpoint" : 2,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [
+                        
+                    ],
+                    "prompt_1" : "",
+                    "response_1" : 
+                    [
+                        
+                    ],
+                    "prompt_2" : "",
+                    "response_2" : 
+                    [
+                        
+                    ]
+                }
+            },
+            "mirror" : 
+            {
+                "pos" : [190, 400],
+                "img_path" : "./assets/main_room/mirror.png",
+                "checkpoint" : 2,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [
+                        
+                    ],
+                    "prompt_1" : "",
+                    "response_1" : 
+                    [
+                        
+                    ],
+                    "prompt_2" : "",
+                    "response_2" : 
+                    [
+                        
+                    ]
+                }
             }
         }
 

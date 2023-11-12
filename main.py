@@ -69,8 +69,8 @@ class World():
         self.set_world_state("menu")
         self.app.bg_image = pg.image.load("./assets/menu/bg.png")
         self.sprites.add(
-            Button(self, "./assets/menu/start.png", (480, 620), lambda: self.load_intro()),
-            Button(self, "./assets/menu/skip.png", (900, 650), lambda: self.load_main_room())
+            MenuButton(self, "./assets/menu/start.png", (480, 620), lambda: self.load_intro()),
+            MenuButton(self, "./assets/menu/skip.png", (900, 650), lambda: self.load_main_room())
                     )
 
     def load_intro(self):
@@ -90,7 +90,7 @@ class World():
             self.sprites.empty()
             self.app.bg_image = pg.image.load("./assets/main_room/bg.png")
             for key, s in self.room_objects_dialogue.items():
-                self.sprites.add(Button(self, s["img_path"], s["pos"], None, s["dialogue"], key))
+                self.sprites.add(RoomObject(self, s["img_path"], s["pos"], s["dialogue"]))
         self.sprites.add(Fade(self, f))
     
     # World state options
@@ -107,16 +107,31 @@ class World():
             case "idle_main_room":
                 self.state = state
                 for s in self.sprites:
-                    if isinstance(s, Button):
+                    if isinstance(s, RoomObject):
                         if s.state == "clicked":
                             s.set_state("fading")
             case _:
                 raise Exception("Improper world state passed to set_world_state()")
         
+class MenuButton(pg.sprite.Sprite):
+    def __init__(self, world: World, img_path: str, center: tuple, action: Callable):    
+        pg.sprite.Sprite.__init__(self)
+        self.world = world
+        self.image = pg.image.load(img_path)
+        self.rect = self.image.get_rect()
+        self.rect.center = center
+        self.action = action
+
+    def update(self):
+        pass
+
+    def check_click(self, p: tuple[int, int]):
+        if self.rect.collidepoint(p):
+            self.action()
 
 
-class Button(pg.sprite.Sprite):
-    def __init__(self, world: World, img_path: str, center: tuple, action: Callable, lines: list[str]=None, label: str=None):    
+class RoomObject(pg.sprite.Sprite):
+    def __init__(self, world: World, img_path: str, center: tuple, lines: list[str]):    
         pg.sprite.Sprite.__init__(self)
         self.world = world
 
@@ -124,10 +139,7 @@ class Button(pg.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = center
         
-        self.action = action
         self.lines = lines
-
-        self.label = label
         self.state = "visible"
         self.alpha = 255
     
@@ -140,12 +152,9 @@ class Button(pg.sprite.Sprite):
 
     def check_click(self, p: tuple[int, int]):
         if self.rect.collidepoint(p) and self.state == "visible" and self.world.state != "dialogue_main_room":
-            if self.action is not None:
-                self.action()
-            else:
-                self.set_state("clicked")
-                self.world.set_world_state("dialogue_main_room")
-                self.world.sprites.add(DBox(70, 70, 500, 200, self.lines, self.world))
+            self.set_state("clicked")
+            self.world.set_world_state("dialogue_main_room")
+            self.world.sprites.add(DBox(70, 70, 500, 200, self.lines, self.world))
     
     # Possible button states
     #   visible     Button is regularly displayed
