@@ -48,7 +48,11 @@
             ],
             "checkpoint_3" :
             [
-
+                "checkpoint 3 text"
+            ],
+            "checkpoint_4" :
+            [
+                "ending text"
             ]
         },
 
@@ -264,11 +268,34 @@
                     ]
                 }
             },
+            "folder" : 
+            {
+                "pos" : [200, 140],
+                "img_path" : "./assets/main_room/folder.png",
+                "checkpoint" : 2,
+                "hidden" : 0,
+                "dialogue" : {
+                    "initial" :
+                    [
+                        "temp"
+                    ],
+                    "prompt_1" : "",
+                    "response_1" : 
+                    [
+                        
+                    ],
+                    "prompt_2" : "temp",
+                    "response_2" : 
+                    [
+                        "temp"
+                    ]
+                }
+            },
             "poster" : 
             {
                 "pos" : [285, 140],
                 "img_path" : "./assets/main_room/poster.png",
-                "checkpoint" : 2,
+                "checkpoint" : -1,
                 "hidden" : 0,
                 "dialogue" : {
                     "initial" :
@@ -291,7 +318,7 @@
             {
                 "pos" : [190, 400],
                 "img_path" : "./assets/main_room/mirror.png",
-                "checkpoint" : 2,
+                "checkpoint" : 3,
                 "hidden" : 0,
                 "dialogue" : {
                     "initial" :

@@ -97,8 +97,12 @@ class World():
         self.set_world_state("fade")
         def f():
             self.current_checkpoint += 1
-            self.set_world_state("idle_main_room")
+            if self.current_checkpoint == 4:
+                self.set_world_state("end")
+            else:
+                self.set_world_state("idle_main_room")
         self.sprites.add(Fade(self, f))
+        
 
     # World state options
     #   menu                    Starting menu, prompt to launch intro_sequence
@@ -107,6 +111,7 @@ class World():
     #   idle_main_room          The player is investigating, next state is active_dialogue once they click a sprite
     #   dialogue_main_room      A main room dialogue box is on screen and currently has focus
     #   checkpoint_main_room    Main room checkpoint dialogue is on screen
+    #   end                     End of game
     def set_world_state(self, state: str):
         match state:
             case "menu" | "fade" | "intro_sequence" | "dialogue_main_room":
@@ -119,7 +124,12 @@ class World():
                             s.set_state("fading")
                 self.refresh_checkpoints()
             case "checkpoint_main_room":
+                self.state = state
                 self.sprites.add(DBox(100, 200, 500, 200, "checkpoint", self.room_checkpoints_dialogue[f"checkpoint_{self.current_checkpoint+1}"], self, (221, 255, 252)))
+            case "end":
+                self.state = state
+                self.sprites.empty()
+                self.app.bg_image = pg.image.load("./assets/end/bg.png")
             case _:
                 raise Exception("Improper world state passed to set_world_state()")
             
