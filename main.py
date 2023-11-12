@@ -83,7 +83,6 @@ class World():
             self.sprites.add(DBox(100, 200, 500, 200, "intro", self.intro_dialogue, self, (221, 255, 252)))
         self.sprites.add(Fade(self, f))
         
-        
     def load_main_room(self):
         self.set_world_state("fade")
         def f():
@@ -92,9 +91,10 @@ class World():
 
             self.remaining_active = 0
             for key, s in self.room_objects_dialogue.items():
-                self.sprites.add(RoomObject(self, s["pos"], s["dialogue"], s["checkpoint"], key))
-                if s["checkpoint"] == 0:
-                    self.remaining_active += 1
+                if s["checkpoint"] != -1:
+                    self.sprites.add(RoomObject(self, s["pos"], s["dialogue"], s["checkpoint"], key))
+                    if s["checkpoint"] == 0:
+                        self.remaining_active += 1
             self.set_world_state("idle_main_room")
         self.sprites.add(Fade(self, f))
     
@@ -103,7 +103,7 @@ class World():
         def f():
             self.current_checkpoint += 1
             if self.current_checkpoint == 4:
-                self.set_world_state("end")
+                pass
             else:
                 self.remaining_active = 0
                 for key, s in self.room_objects_dialogue.items():
@@ -135,7 +135,12 @@ class World():
                 self.refresh_checkpoints()
             case "checkpoint_main_room":
                 self.state = state
-                self.sprites.add(DBox(100, 200, 500, 200, "checkpoint", self.room_checkpoints_dialogue[f"checkpoint_{self.current_checkpoint+1}"], self, (221, 255, 252)))
+                if self.current_checkpoint < 3:
+                    self.sprites.add(DBox(100, 200, 500, 200, "checkpoint", self.room_checkpoints_dialogue[f"checkpoint_{self.current_checkpoint+1}"], self, (221, 255, 252)))
+                else:
+                    for key, s in self.room_objects_dialogue.items():
+                        if s["checkpoint"] != -1:
+                            self.sprites.add(RoomObject(self, s["pos"], s["dialogue"], s["checkpoint"], key))
             case "end":
                 self.state = state
                 self.sprites.empty()
