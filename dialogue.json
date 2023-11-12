@@ -144,17 +144,26 @@
                 "dialogue" : {
                     "initial" :
                     [
-                        
+                        "BOTTLES OF VITAMIN SUPPLEMENTS ARE STASHED, UNOPENED, IN A CORNER.",
+                        "THIS IS LIKE IF A PLEASANT SURPRISE WERE UNPLEASANT AND UNSURPRISING.",
+                        "AS IN, THIS EXPLAINS A LOT, ACTUALLY.",
+                        "WHAT WILL YOU DO?"
                     ],
                     "prompt_1" : "",
                     "response_1" : 
                     [
                         
                     ],
-                    "prompt_2" : "",
+                    "prompt_2" : "TAKE A PILL IN IBIZA",
                     "response_2" : 
                     [
-                        
+                        "SEE, THIS WOULD BE THE SMART THING TO DO.",
+                        "WHEN YOUR ROOM IS CLUTTERED, YOU’RE SUPPOSED TO CLEAN IT.",
+                        "WHEN YOUR BODY IS MALNOURISHED, YOU’RE SUPPOSED TO…PUT NUTRIENTS IN IT.",
+                        "...",
+                        "WHY CAN’T YOU DO IT?",
+                        "IT’S SO SIMPLE.",
+                        "WHY CAN’T YOU DO IT?"
                     ]
                 }
             },
@@ -167,17 +176,39 @@
                 "dialogue" : {
                     "initial" :
                     [
-                        
+                        "IT’S ALMOST WINTER.",
+                        "IT WOULD PROBABLY BE APPROPRIATE TO BREAK OUT YOUR WARMER CLOTHES.",
+                        "YOU HAVE A COAT, PLUS BOOTS AND A FEW SWEATERS.",
+                        "THEY’RE COZY. YOU LIKE THEM.",
+                        "WHAT WILL YOU DO?"
                     ],
                     "prompt_1" : "",
                     "response_1" : 
                     [
                         
                     ],
-                    "prompt_2" : "",
+                    "prompt_2" : "BUNDLE UP",
                     "response_2" : 
                     [
-                        
+                        "...",
+                        "YOU STARE FOR A WHILE.",
+                        "YOU’RE NOT DOING ANYTHING ELSE.",
+                        "THERE IS NO REASON FOR YOU NOT TO BE DOING THIS RIGHT NOW.",
+                        "AND YET, YOU’RE NOT DOING THIS RIGHT NOW.",
+                        "YOU STARE SOME MORE.",
+                        "THEN YOU SPOT SOMETHING THAT LOOKS LIKE…A BUNNY EAR?",
+                        "OH. RIGHT.",
+                        "YOU OPEN WHAT WOULD HAVE BEEN A TREASURE CHEST OF FRIENDS TO YOUR CHILD SELF.",
+                        "YOU REMEMBER SITTING YOUR STUFFED ANIMALS IN A CIRCLE AROUND YOU FOR DEEP CONVERSATION AND TEA.",
+                        "YOU REMEMBER HOLDING THEM.",
+                        "YOU REMEMBER IMAGINING THEY COULD HOLD YOU TOO.",
+                        "...",
+                        "YOU GOT A FRIEND IN ME...?",
+                        "OKAY, NOW THAT’S JUST RIDICULOUS.",
+                        "YOU WILL NOT BE RECREATING TOY STORY.",
+                        "YOU ARE NOT DESPERATE ENOUGH TO ATTEMPT TO FIND COMPANIONSHIP IN INANIMATE OBJECTS.",
+                        "WHAT YOU WILL BE DOING INSTEAD IS…",
+                        "..."
                     ]
                 }
             },
@@ -190,17 +221,17 @@
                 "dialogue" : {
                     "initial" :
                     [
-                        
+                        "temporary"
                     ],
                     "prompt_1" : "",
                     "response_1" : 
                     [
                         
                     ],
-                    "prompt_2" : "",
+                    "prompt_2" : "temporary",
                     "response_2" : 
                     [
-                        
+                        "hello"
                     ]
                 }
             },

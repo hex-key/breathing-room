@@ -13,6 +13,7 @@ class DialogBox(pg.sprite.Sprite):
         self.world = world
         self.dialogue = dialogue
         self.color = color
+        self.type = type
         
         self.font = pg.font.Font("./assets/november.ttf", 25)
         self.image = pg.Surface((self.width, self.height))
@@ -43,7 +44,10 @@ class DialogBox(pg.sprite.Sprite):
             self.lines_index += 1
             if self.lines_index >= self.lines_count:
                 self.world.sprites.remove(self)
-                self.world.set_world_state("idle_main_room")
+                if self.type == "room_object":
+                    self.world.set_world_state("idle_main_room")
+                elif self.type == "checkpoint":
+                    self.world.load_next_checkpoint()
             else:
                 self.text_surface = self.font.render(self.lines[self.lines_index], True, (0, 0, 0))
 

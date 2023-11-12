@@ -93,7 +93,7 @@ class World():
             self.set_world_state("idle_main_room")
         self.sprites.add(Fade(self, f))
     
-    def load__next_checkpoint(self):
+    def load_next_checkpoint(self):
         self.set_world_state("fade")
         def f():
             self.current_checkpoint += 1
