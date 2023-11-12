@@ -5,7 +5,7 @@ from typing import Callable
 
 from dialog_box import DialogBox as DBox
 
-CAPTION = "game with story 🦣"
+CAPTION = "game with story 🦣🧍‍♂️"
 SCREEN_SIZE = (1000, 750)
 
 class App():

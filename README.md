@@ -2,11 +2,11 @@
 Project for HackUMass XI 🦣🥳🎈 
 
 CONTRIBUTORS
-* iris chen, umass - dialogue boxes, github/git mastery, 是吗?!?!
+* iris chen, umass - dialogue boxes, github/git mastery, 什么?!?!
 * lance cheng, umass - cursor/bg/sprite implementation, dialogue, silly goofy moods
 * madi gudin, amherst - The Whole Interface, general chadness
 * sam johar, amherst - art, dialogue, debugging genius, joy
-  
+
 INSPIRATION:
 we wanted to make something we would all be equally passionate about creating, despite our varying skill levels. sam wrote the fateful message "game. with Story [sic]," and the rest is history. gws is also inspired by undertale, you are baba, the rusty lake series, social anxiety disorder, and our experiences as college freshmen.
 
