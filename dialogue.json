@@ -165,8 +165,19 @@
                         "AS IN, THIS EXPLAINS A LOT, ACTUALLY.",
                         "WHAT WILL YOU DO?"
                     ],
-                    "prompt_1" : "TAKE A PILL IN IBIZA",
+                    "prompt_1" : "",
                     "response_1" : 
+                    [
+                        "SEE, THIS WOULD BE THE SMART THING TO DO.",
+                        "WHEN YOUR ROOM IS CLUTTERED, YOU'RE SUPPOSED TO CLEAN IT.",
+                        "WHEN YOUR BODY IS MALNOURISHED, YOU'RE SUPPOSED TO...PUT NUTRIENTS IN IT.",
+                        "...",
+                        "WHY CAN'T YOU DO IT?",
+                        "IT'S SO SIMPLE.",
+                        "WHY CAN'T YOU DO IT?"
+                    ],
+                    "prompt_2" : "TAKE A PILL IN IBIZA",
+                    "response_2" : 
                     [
                         "SEE, THIS WOULD BE THE SMART THING TO DO.",
                         "WHEN YOUR ROOM IS CLUTTERED, YOU'RE SUPPOSED TO CLEAN IT.",
@@ -193,8 +204,20 @@
                         "THEY'RE COZY. YOU LIKE THEM.",
                         "WHAT WILL YOU DO?"
                     ],
-                    "prompt_1" : "[BUNDLE UP.]",
+                    "prompt_1" : "",
                     "response_1" : 
+                    [
+                        "...",
+                        "YOU STARE FOR A WHILE.",
+                        "YOU'RE NOT DOING ANYTHING ELSE.",
+                        "THERE IS NO REASON FOR YOU NOT TO BE DOING THIS RIGHT NOW.",
+                        "AND YET, YOU'RE NOT DOING THIS RIGHT NOW.",
+                        "STAYING HERE WAS SUPPOSED TO BE THE EASIER CHOICE.",
+                        "BUT IT SEEMS LIKE EVEN WHEN YOU'RE SEQUESTERED IN YOUR ROOM, AWAY FROM THE WORLD...",
+                        "NOTHING CAN JUST BE SIMPLE."
+                    ],
+                    "prompt_2" : "[BUNDLE UP.]",
+                    "response_2" : 
                     [
                         "...",
                         "YOU STARE FOR A WHILE.",
@@ -224,8 +247,19 @@
                         "YOU REMEMBER IMAGINING THEY COULD HOLD YOU TOO.",
                         "WHAT WILL YOU DO?"
                     ],
-                    "prompt_1" : "[YOU GOT A FRIEND IN ME?]",
+                    "prompt_1" : "",
                     "response_1" : 
+                    [
+                        "OKAY, NOW THAT'S JUST RIDICULOUS.",
+                        "YOU WILL NOT BE RECREATING TOY STORY.",
+                        "YOU ARE NOT DESPERATE ENOUGH TO ATTEMPT TO FIND COMPANIONSHIP IN INANIMATE OBJECTS.",
+                        "WHAT YOU WILL BE DOING INSTEAD IS...",
+                        "...",
+                        "...",
+                        "HM."
+                    ],
+                    "prompt_2" : "[YOU GOT A FRIEND IN ME?]",
+                    "response_2" : 
                     [
                         "OKAY, NOW THAT'S JUST RIDICULOUS.",
                         "YOU WILL NOT BE RECREATING TOY STORY.",
@@ -318,15 +352,25 @@
                 "dialogue" : {
                     "initial" :
                     [
-                    "IT'S YOU.",
-                    "JUST YOU.",
-                    "YOU WANT THAT TO CHANGE.",
-                    "YOU WANT TO CHANGE THAT.",
-                    "MAYBE NOT RIGHT NOW, BECAUSE YOU NEED TO GIVE YOURSELF TIME TO PROCESS.",
-                    "BUT NEXT TIME, YOU'LL SAY YOU'LL BE AT DINNER.",
-                    "...",
-                    "THIS IS THE CLOSEST YOU'VE EVER FELT TO HOPEFUL.",
-                    "YOU HAVE TO BELIEVE YOU CAN GET CLOSER."
+                        "IT'S YOU.",
+                        "JUST YOU.",
+                        "YOU WANT THAT TO CHANGE.",
+                        "YOU WANT TO CHANGE THAT.",
+                        "MAYBE NOT RIGHT NOW, BECAUSE YOU NEED TO GIVE YOURSELF TIME TO PROCESS.",
+                        "BUT NEXT TIME, YOU'LL SAY YOU'LL BE AT DINNER.",
+                        "...",
+                        "THIS IS THE CLOSEST YOU'VE EVER FELT TO HOPEFUL.",
+                        "YOU HAVE TO BELIEVE YOU CAN GET CLOSER."
+                    ],
+                    "prompt_1" : "",
+                    "response_1" : 
+                    [
+                        "temp"
+                    ],
+                    "prompt_2" : "temp",
+                    "response_2" : 
+                    [
+                        "temp"
                     ]
                 }
             }
