@@ -56,7 +56,7 @@
 
             "textbooks" : 
             {
-                "pos" : [730, 560],
+                "pos" : [0, 0],
                 "img_path" : "./assets/main_room/textbooks.png",
                 "checkpoint" : 0,
                 "hidden" : 0,
@@ -84,7 +84,7 @@
     
             "papers" : 
             {
-                "pos" : [550, 650],
+                "pos" : [0, 0],
                 "img_path" : "./assets/main_room/papers.png",
                 "checkpoint" : 0,
                 "hidden" : 0,
@@ -115,7 +115,7 @@
     
             "laundry" : 
             {
-                "pos" : [240, 630],
+                "pos" : [0, 0],
                 "img_path" : "./assets/main_room/laundry.png",
                 "checkpoint" : 0,
                 "hidden" : 0,
@@ -142,7 +142,7 @@
             },
             "vitamins" : 
             {
-                "pos" : [350, 340],
+                "pos" : [0, 0],
                 "img_path" : "./assets/main_room/vitamins.png",
                 "checkpoint" : 1,
                 "hidden" : 0,
@@ -180,7 +180,7 @@
             },
             "winter" : 
             {
-                "pos" : [800, 420],
+                "pos" : [0, 0],
                 "img_path" : "./assets/main_room/winter.png",
                 "checkpoint" : 1,
                 "hidden" : 0,
@@ -243,7 +243,7 @@
             },
             "stuffies" : 
             {
-                "pos" : [600, 350],
+                "pos" : [0, 0],
                 "img_path" : "./assets/main_room/stuffies.png",
                 "checkpoint" : 1,
                 "hidden" : 0,
