@@ -85,12 +85,20 @@ class World():
         self.state = "idle_main_room"
         self.sprites.empty()
         self.app.bg_image = pg.image.load("./assets/main_room/bg.png")
-        for s in self.room_dialogue.values():
-            self.sprites.add(Button(self, s["img_path"], s["pos"], None, s["dialogue"]))
+        for key, s in self.room_dialogue.items():
+            self.sprites.add(Button(self, s["img_path"], s["pos"], None, s["dialogue"], key))
+    
+    def set_world_state(self, state: str):
+        self.state = state
+        if state == "idle_main_room":
+            for s in self.sprites:
+                if isinstance(s, Button):
+                    if s.state == "clicked":
+                        s.set_state("fading")
 
 
 class Button(pg.sprite.Sprite):
-    def __init__(self, world: World, img_path: str, center: tuple, action: Callable, lines: list[str]=None):    
+    def __init__(self, world: World, img_path: str, center: tuple, action: Callable, lines: list[str]=None, label: str=None):    
         pg.sprite.Sprite.__init__(self)
         self.world = world
 
@@ -101,20 +109,35 @@ class Button(pg.sprite.Sprite):
         self.action = action
         self.lines = lines
 
+        self.label = label
+        # Possible button states
+        #   visible     Button is regularly displayed
+        #   clicked     Button has been clicked, respective dialogue is running
+        #   fading      Button is being faded to clear
+        self.state = "visible"
+        self.alpha = 255
+    
+    def update(self):
+        if self.state == "fading":
+            self.alpha -= 0.5
+            self.image.fill((255, 255, 255, self.alpha), None, pg.BLEND_RGBA_MULT)
+            if self.alpha <= 0:
+                self.world.sprites.remove(self)
+
     def check_click(self, p: tuple[int, int]):
         if self.rect.collidepoint(p):
             if self.action is not None:
                 self.action()
             else:
-                self.world.state = "main_room_dialogue"
-                self.world.sprites.remove(self)
-                self.world.sprites.add(DBox(100, 500, 500, 200, self.lines, self.world))
+                self.state = "clicked"
+                self.world.set_world_state("main_room_dialogue")
+                self.world.sprites.add(DBox(100, 100, 500, 200, self.lines, self.world))
+    
+    def set_state(self, state):
+        self.state = state
 
 
 def main():
-    """
-    Prepare our environment, create a display, and start the program.
-    """
     os.environ['SDL_VIDEO_CENTERED'] = '1'
     pg.init()
     pg.display.set_caption(CAPTION)
