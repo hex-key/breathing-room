@@ -24,9 +24,10 @@
     {
         "textbooks" : 
         {
-            "pos" : [20, 50],
-            "img_path" : "",
-            "checkpoint" : 1,
+            "pos" : [730, 560],
+            "img_path" : "./assets/main_room/textbooks.png",
+            "checkpoint" : 0,
+            "hidden" : 0,
             "dialogue" : 
             [
                 "YOU RENTED THESE USED.",
@@ -37,28 +38,31 @@
         },
         "papers" : 
         {
-            "pos" : [100, 150],
-            "img_path" : "",
-            "checkpoint" : 1,
+            "pos" : [550, 650],
+            "img_path" : "./assets/main_room/papers.png",
+            "checkpoint" : 0,
+            "hidden" : 0,
             "dialogue" : 
             [
-                "different words",
-                "once upon a time...",
-                "there was a STORY",
-                "the end."
+                "SOME OF THESE ARE FLYERS FROM CLUBS AROUND CAMPUS.",
+                "DURING ORIENTATION, YOU'D SMILED AND SAID YOU’D FOLLOW THEM ON INSTAGRAM.",
+                "OTHERS ARE YOUR CLASS SYLLABI.",
+                "ON THE FIRST DAY, YOU ANNOTATED THEM THOROUGHLY FOR FUTURE REFERENCE.",
+                "THE INK IS SMUDGED.",
+                "WHAT WILL YOU DO NOW?"
             ]
         },
         "laundry" : 
         {
-            "pos" : [250, 150],
-            "img_path" : "",
-            "checkpoint" : 1,
+            "pos" : [240, 630],
+            "img_path" : "./assets/main_room/laundry.png",
+            "checkpoint" : 0,
+            "hidden" : 0,
             "dialogue" : 
             [
-                "different words",
-                "once upon a time...",
-                "there was a STORY",
-                "the end."
+                "YOU WERE SO PROUD OF YOURSELF FOR DOING YOUR LAUNDRY.",
+                "WHAT WILL YOU DO NOW?"
+                
             ],
             "options" :
             [
