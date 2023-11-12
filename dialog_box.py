@@ -15,7 +15,7 @@ class DialogBox(pg.sprite.Sprite):
         self.dialogue = dialogue
 
         self.lines_index = 0
-        self.total_lines = len(self.dialogue["initial"] + 1) # TODO after player makes choice, add len(self.dialogue["response_x"])
+        self.total_lines = len(self.dialogue["initial"]) + 1
 
         self.font = pg.font.Font("./assets/november.ttf", 25)
 
@@ -24,8 +24,6 @@ class DialogBox(pg.sprite.Sprite):
         
         # options: initial, prompt, response
         self.state = "initial"
-
-        self.response_options = ["response_1", "response_2"]
     
     def draw_lines(self, line_segments: list[str]):
         self.image.fill((255, 255, 255))
@@ -34,7 +32,6 @@ class DialogBox(pg.sprite.Sprite):
             text = self.font.render(segment, True, (0, 0, 0))
             self.image.blit(text, (5, 5 + ((self.font.get_height()+2)*height_index)))
             height_index += 1
-        # TODO i probably messed up something with lines_index that will need to be fixed
         
 
     def update(self):
@@ -43,7 +40,7 @@ class DialogBox(pg.sprite.Sprite):
         if self.state == "initial":
             # display initial dialogue text as user clicks through
             line_segments = break_line(self, self.dialogue["initial"][self.lines_index])
-            self.draw_lines(self, line_segments)
+            self.draw_lines(line_segments)
 
         elif self.state == "prompt":
             text_prompt_1 = self.font.render(self.dialogue["prompt_1"], True, (0, 0, 0))
@@ -55,19 +52,18 @@ class DialogBox(pg.sprite.Sprite):
 
         else: # response
             # display response text as user clicks through
-            line_segments = break_line(self, self.dialogue[self.chosen_option]) # TODO its not gonna be called that
-            self.draw_lines(self, line_segments)
+            line_segments = break_line(self, self.dialogue[self.chosen_response][self.lines_index])
+            self.draw_lines(line_segments)
             
             
     def advance_text(self):
-        if self.lines_index >= self.lines_count:
+        if self.lines_index >= self.total_lines:
             self.world.sprites.remove(self)
             self.world.set_world_state("idle_main_room")
         else:
-            self.text_surface = self.font.render(self.lines[self.lines_index], True, (0, 0, 0))
+            self.text_surface = self.font.render(self.dialogue["initial"][self.lines_index], True, (0, 0, 0))
             
     def check_click(self, p: tuple[int, int]):
-        # TODO add check for state. if state is prompting, add special zones for click detection and update self.response, the list index maximum, state, and whatever else im forgetting jesus how do real game devs do this shit
         if self.rect.collidepoint(p):
             if self.state == "initial":
                 # advance text
@@ -76,10 +72,14 @@ class DialogBox(pg.sprite.Sprite):
                 # advance state if done with initial dialogue
                 if self.lines_index == len(self.dialogue["initial"]) - 1:
                     self.state = "prompt"
+
             elif self.state == "prompt":
-                # some fucking math i'll deal with it later - for now...
-                self.lines_index += 
-                self.state = response
+                # if statement that sets chosen_response based on where it was clicked
+                self.chosen_response = "response_1"
+
+                self.total_lines += len(self.dialogue[self.chosen_response])
+                self.state = "response"
+
             else: # response
                 self.lines_index += 1
                 self.advance_text()
