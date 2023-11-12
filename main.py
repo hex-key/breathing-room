@@ -5,7 +5,7 @@ from typing import Callable
 
 from dialog_box import DialogBox as DBox
 
-CAPTION = "game with story 🦣🧍‍♂️"
+CAPTION = "breathing room 🪟"
 SCREEN_SIZE = (1000, 750)
 
 class App():
@@ -71,7 +71,6 @@ class World():
         self.app.bg_image = pg.image.load("./assets/menu/bg.png")
         self.sprites.add(
             MenuButton(self, "./assets/menu/start.png", (480, 620), lambda: self.load_intro()),
-            MenuButton(self, "./assets/menu/skip.png", (900, 650), lambda: self.load_main_room())
                     )
 
     def load_intro(self):
