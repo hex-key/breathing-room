@@ -232,7 +232,7 @@
             },
             "stuffies" : 
             {
-                "pos" : [370, 614],
+                "pos" : [65, 613],
                 "img_path" : "./assets/main_room/stuffies.png",
                 "checkpoint" : 1,
                 "hidden" : 0,
