@@ -86,11 +86,11 @@ class World():
     def load_main_room(self):
         self.set_world_state("fade")
         def f():
-            self.set_world_state("idle_main_room")
             self.sprites.empty()
             self.app.bg_image = pg.image.load("./assets/main_room/bg.png")
             for key, s in self.room_objects_dialogue.items():
-                self.sprites.add(RoomObject(self, s["img_path"], s["pos"], s["dialogue"]))
+                self.sprites.add(RoomObject(self, s["pos"], s["dialogue"], s["checkpoint"], key))
+            self.set_world_state("idle_main_room")
         self.sprites.add(Fade(self, f))
     
     # World state options
@@ -106,12 +106,18 @@ class World():
                 self.state = state
             case "idle_main_room":
                 self.state = state
+                self.refresh_checkpoints()
                 for s in self.sprites:
                     if isinstance(s, RoomObject):
                         if s.state == "clicked":
                             s.set_state("fading")
             case _:
                 raise Exception("Improper world state passed to set_world_state()")
+            
+    def refresh_checkpoints(self):
+        for s in self.sprites:
+            if isinstance(s, RoomObject):
+                s.set_active(self.current_checkpoint)
         
 class MenuButton(pg.sprite.Sprite):
     def __init__(self, world: World, img_path: str, center: tuple, action: Callable):    
@@ -131,17 +137,26 @@ class MenuButton(pg.sprite.Sprite):
 
 
 class RoomObject(pg.sprite.Sprite):
-    def __init__(self, world: World, img_path: str, center: tuple, lines: list[str]):    
+    def __init__(self, world: World, center: tuple, lines: list[str], checkpoint: int, label: str):    
         pg.sprite.Sprite.__init__(self)
         self.world = world
 
-        self.image = pg.image.load(img_path)
+        self.asset = pg.image.load(f"./assets/main_room/{label}.png")
+        self.asset_active = pg.image.load(f"./assets/main_room/{label}_active.png")
+        self.image = self.asset
         self.rect = self.image.get_rect()
         self.rect.center = center
         
         self.lines = lines
+        self.checkpoint = checkpoint
         self.state = "visible"
         self.alpha = 255
+
+    def set_active(self, checkpoint: int):
+        if checkpoint == self.checkpoint:
+            self.image = self.asset_active
+        else:
+            self.image = self.asset
     
     def update(self):
         if self.state == "fading":
@@ -151,7 +166,7 @@ class RoomObject(pg.sprite.Sprite):
                 self.kill()
 
     def check_click(self, p: tuple[int, int]):
-        if self.rect.collidepoint(p) and self.state == "visible" and self.world.state != "dialogue_main_room":
+        if self.rect.collidepoint(p) and self.state == "visible" and self.world.state != "dialogue_main_room" and (self.image == self.asset_active):
             self.set_state("clicked")
             self.world.set_world_state("dialogue_main_room")
             self.world.sprites.add(DBox(70, 70, 500, 200, self.lines, self.world))
