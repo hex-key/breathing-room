@@ -30,7 +30,7 @@
                 "YOU HAVE NOW SUCCESSFULLY EXECUTED THE DECLUTTERING.",
                 "PERHAPS NOT THE MOST DECLUTTERY OF DECLUTTERINGS.",
                 "BUT A DECLUTTERING REGARDLESS.",
-                "THERE’S NOTHING ELSE YOU STRICTLY HAVE TO DO.",
+                "THERE'S NOTHING ELSE YOU STRICTLY HAVE TO DO.",
                 "YOU CAN GET DINNER WITH THEM NOW.",
                 ".",
                 "..",
@@ -124,8 +124,8 @@
                     "response_1" : 
                     [
                         "YOU PUT YOUR CLOTHES BACK INTO YOUR HAMPER.",
-                        "YOU DON’T KNOW WHERE YOU’LL PUT YOUR DIRTY LAUNDRY NOW.",
-                        "BUT AT LEAST IT’S SORTED OUT TEMPORARILY."
+                        "YOU DON'T KNOW WHERE YOU'LL PUT YOUR DIRTY LAUNDRY NOW.",
+                        "BUT AT LEAST IT'S SORTED OUT TEMPORARILY."
                     ],
                     "prompt_2" : "THE OL' JUNK DRAWER",
                     "response_2" : 
