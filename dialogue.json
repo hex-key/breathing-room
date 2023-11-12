@@ -53,7 +53,18 @@
             ],
             "checkpoint_3" :
             [
-
+                "IT FEELS LIKE THE GROUND IS SINKING BENEATH YOUR FEET.",
+                "YOU FEEL THIS A LOT.",
+                "YOU DIDN’T KNOW WHAT IT WAS BEFORE.",
+                "MAYBE YOU’RE LONELY.",
+                "AND MAYBE WHILE YOU WERE STRUGGLING TO REACH OUT...",
+                "AGONIZING OVER WHETHER OR NOT IT WAS RIGHT...",
+                "IT JUST MADE YOU LONELIER."
+                "IT’S A HARD THING TO DO.",
+                "BUT IS PUTTING IT OFF REALLY WORTH BEING SO ALONE?",
+                "YOU HAVE TO ADMIT IT TO YOURSELF.",
+                "...",
+                "NO."
             ]
         },
 
@@ -267,17 +278,6 @@
                         "IT’S SIMPLE.",
                         "IT’S STILL HARD.",
                         "WHAT WILL YOU DO NOW?"
-
-                    ],
-                    "prompt_1" : "",
-                    "response_1" : 
-                    [
-                        "hello"
-                    ],
-                    "prompt_2" : "temporary",
-                    "response_2" : 
-                    [
-                        "hello"
                     ]
                 }
             },
@@ -290,17 +290,15 @@
                 "dialogue" : {
                     "initial" :
                     [
-                        
-                    ],
-                    "prompt_1" : "",
-                    "response_1" : 
-                    [
-                        
-                    ],
-                    "prompt_2" : "",
-                    "response_2" : 
-                    [
-                        
+                    "IT’S YOU.",
+                    "JUST YOU.",
+                    "YOU WANT THAT TO CHANGE.",
+                    "YOU WANT TO CHANGE THAT.",
+                    "MAYBE NOT RIGHT NOW, BECAUSE YOU NEED TO GIVE YOURSELF TIME TO PROCESS.",
+                    "BUT NEXT TIME, YOU’LL SAY YOU’LL BE AT DINNER.",
+                    "..."
+                    "THIS IS THE CLOSEST YOU’VE EVER FELT TO HOPEFUL.",
+                    "YOU HAVE TO BELIEVE YOU CAN GET CLOSER."
                     ]
                 }
             }
