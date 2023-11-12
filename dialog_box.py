@@ -3,7 +3,7 @@ from pygame import sprite
 
 
 class DialogBox(pg.sprite.Sprite):
-    def __init__(self, x: int, y: int, width: int, height: int, lines: list[str], world):
+    def __init__(self, x: int, y: int, width: int, height: int, dialogue: list[str], world):
         pg.sprite.Sprite.__init__(self)
         self.x = x
         self.y = y
@@ -11,9 +11,11 @@ class DialogBox(pg.sprite.Sprite):
         self.height = height
         self.world = world
         
-        self.lines = lines
+        self.dialogue = dialogue
+
+        self.lines = self.dialogue["initial"]
         self.lines_index = 0
-        self.lines_count = len(lines)
+        self.lines_count = len(self.lines)
         
         self.font = pg.font.Font("./assets/november.ttf", 25)
 
@@ -30,8 +32,6 @@ class DialogBox(pg.sprite.Sprite):
             # self.image.blit(text, (5, 5))
             height_index += 1
             
-            print(height_index)
-
     def check_click(self, p: tuple[int, int]):
         if self.rect.collidepoint(p):
             self.lines_index += 1

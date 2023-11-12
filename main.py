@@ -121,7 +121,7 @@ class Button(pg.sprite.Sprite):
         if self.state == "fading":
             self.alpha -= 0.5
             self.image.fill((255, 255, 255, self.alpha), None, pg.BLEND_RGBA_MULT)
-            if self.alpha == 0:
+            if self.alpha <= 0:
                 self.world.sprites.remove(self)
 
     def check_click(self, p: tuple[int, int]):
@@ -131,7 +131,7 @@ class Button(pg.sprite.Sprite):
             else:
                 self.state = "clicked"
                 self.world.set_world_state("main_room_dialogue")
-                self.world.sprites.add(DBox(100, 500, 500, 200, self.lines, self.world))
+                self.world.sprites.add(DBox(100, 100, 500, 200, self.lines, self.world))
     
     def set_state(self, state):
         self.state = state
