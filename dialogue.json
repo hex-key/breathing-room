@@ -14,7 +14,7 @@
             "YOU: i have to",
             "YOU ARE TYPING…",
             "YOU: organize some of my stuff lol",
-            "YOU: it’s just sitting around i should probably clean it up",
+            "YOU: it's just sitting around i should probably clean it up",
             "FRIEND (?): aw ok maybe next time?",
             "YOU: yeah",
             "YOU: for sure"
@@ -61,7 +61,7 @@
                 "initial" :
                 [
                     "SOME OF THESE ARE FLYERS FROM CLUBS AROUND CAMPUS.",
-                    "DURING ORIENTATION, YOU'D SMILED AND SAID YOU’D FOLLOW THEM ON INSTAGRAM.",
+                    "DURING ORIENTATION, YOU'D SMILED AND SAID YOU'D FOLLOW THEM ON INSTAGRAM.",
                     "OTHERS ARE YOUR CLASS SYLLABI.",
                     "ON THE FIRST DAY, YOU ANNOTATED THEM THOROUGHLY FOR FUTURE REFERENCE.",
                     "THE INK IS SMUDGED.",
@@ -98,8 +98,8 @@
                 "response_1" : 
                 [
                     "YOU PUT YOUR CLOTHES BACK INTO YOUR HAMPER.",
-                    "YOU DON’T KNOW WHERE YOU’LL PUT YOUR DIRTY LAUNDRY NOW.",
-                    "BUT AT LEAST IT’S SORTED OUT TEMPORARILY."
+                    "YOU DON'T KNOW WHERE YOU'LL PUT YOUR DIRTY LAUNDRY NOW.",
+                    "BUT AT LEAST IT'S SORTED OUT TEMPORARILY."
                 ],
                 "prompt_2" : "THE OL' JUNK DRAWER",
                 "response_2" : 
