@@ -68,13 +68,14 @@ class DialogBox(pg.sprite.Sprite):
                     self.state = "prompt"
 
             elif self.state == "prompt":
-                if p[1] < self.rect.height - 65:
+                click_y = p[1] - self.rect.y + 10
+                if click_y < self.rect.height - 70:
                     # clicked outside of either option
                     pass
                 else:
                     self.lines_index += 1
                     # do stuff based on which option player clicked
-                    if p[1] < self.rect.height - 40:
+                    if click_y < self.rect.height - 32:
                         self.chosen_response = "response_1"
                     else:
                         self.chosen_response = "response_2"
