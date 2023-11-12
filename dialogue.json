@@ -322,7 +322,7 @@
             },
             "folder" : 
             {
-                "pos" : [200, 140],
+                "pos" : [562, 542],
                 "img_path" : "./assets/main_room/folder.png",
                 "checkpoint" : 2,
                 "hidden" : 0,
@@ -345,7 +345,7 @@
             },
             "mirror" : 
             {
-                "pos" : [190, 400],
+                "pos" : [211, 549],
                 "img_path" : "./assets/main_room/mirror.png",
                 "checkpoint" : 3,
                 "hidden" : 0,
