@@ -39,13 +39,12 @@
             "checkpoint_2" :
             [
                 "IT JUST GOT A BIT TOO REAL IN HERE.",
-                "BUT GOING OUTSIDE WON’T BE BETTER.",
-                "IT CAN’T POSSIBLY.",
+                "BUT GOING OUTSIDE WON'T BE BETTER.",
+                "IT CAN'T POSSIBLY.",
                 "SO MANY PEOPLE...",
                 "YOU'RE NOT PARTICULARLY CLOSE WITH ANY OF THEM...",
                 "...",
                 "PROBABLY BETTER TO STAY HERE FOR NOW. RIGHT?"
-                
             ],
             "checkpoint_3" :
             [
@@ -159,23 +158,23 @@
                     "response_1" : 
                     [
                         "SEE, THIS WOULD BE THE SMART THING TO DO.",
-                        "WHEN YOUR ROOM IS CLUTTERED, YOU’RE SUPPOSED TO CLEAN IT.",
-                        "WHEN YOUR BODY IS MALNOURISHED, YOU’RE SUPPOSED TO...PUT NUTRIENTS IN IT.",
+                        "WHEN YOUR ROOM IS CLUTTERED, YOU'RE SUPPOSED TO CLEAN IT.",
+                        "WHEN YOUR BODY IS MALNOURISHED, YOU'RE SUPPOSED TO...PUT NUTRIENTS IN IT.",
                         "...",
-                        "WHY CAN’T YOU DO IT?",
-                        "IT’S SO SIMPLE.",
-                        "WHY CAN’T YOU DO IT?"
+                        "WHY CAN'T YOU DO IT?",
+                        "IT'S SO SIMPLE.",
+                        "WHY CAN'T YOU DO IT?"
                     ],
                     "prompt_2" : "TAKE A PILL IN IBIZA",
                     "response_2" : 
                     [
                         "SEE, THIS WOULD BE THE SMART THING TO DO.",
-                        "WHEN YOUR ROOM IS CLUTTERED, YOU’RE SUPPOSED TO CLEAN IT.",
-                        "WHEN YOUR BODY IS MALNOURISHED, YOU’RE SUPPOSED TO...PUT NUTRIENTS IN IT.",
+                        "WHEN YOUR ROOM IS CLUTTERED, YOU'RE SUPPOSED TO CLEAN IT.",
+                        "WHEN YOUR BODY IS MALNOURISHED, YOU'RE SUPPOSED TO...PUT NUTRIENTS IN IT.",
                         "...",
-                        "WHY CAN’T YOU DO IT?",
-                        "IT’S SO SIMPLE.",
-                        "WHY CAN’T YOU DO IT?"
+                        "WHY CAN'T YOU DO IT?",
+                        "IT'S SO SIMPLE.",
+                        "WHY CAN'T YOU DO IT?"
                     ]
                 }
             },
@@ -188,10 +187,10 @@
                 "dialogue" : {
                     "initial" :
                     [
-                        "IT’S ALMOST WINTER.",
+                        "IT'S ALMOST WINTER.",
                         "IT WOULD PROBABLY BE APPROPRIATE TO BREAK OUT YOUR WARMER CLOTHES.",
                         "YOU HAVE A COAT, PLUS BOOTS AND A FEW SWEATERS.",
-                        "THEY’RE COZY. YOU LIKE THEM.",
+                        "THEY'RE COZY. YOU LIKE THEM.",
                         "WHAT WILL YOU DO?"
                     ],
                     "prompt_1" : "",
@@ -199,9 +198,9 @@
                     [
                         "...",
                         "YOU STARE FOR A WHILE.",
-                        "YOU’RE NOT DOING ANYTHING ELSE.",
+                        "YOU'RE NOT DOING ANYTHING ELSE.",
                         "THERE IS NO REASON FOR YOU NOT TO BE DOING THIS RIGHT NOW.",
-                        "AND YET, YOU’RE NOT DOING THIS RIGHT NOW.",
+                        "AND YET, YOU'RE NOT DOING THIS RIGHT NOW.",
                         "YOU STARE SOME MORE.",
                         "THEN YOU SPOT SOMETHING THAT LOOKS LIKE...A BUNNY EAR?",
                         "OH. RIGHT.",
@@ -211,7 +210,7 @@
                         "YOU REMEMBER IMAGINING THEY COULD HOLD YOU TOO.",
                         "...",
                         "YOU GOT A FRIEND IN ME...?",
-                        "OKAY, NOW THAT’S JUST RIDICULOUS.",
+                        "OKAY, NOW THAT'S JUST RIDICULOUS.",
                         "YOU WILL NOT BE RECREATING TOY STORY.",
                         "YOU ARE NOT DESPERATE ENOUGH TO ATTEMPT TO FIND COMPANIONSHIP IN INANIMATE OBJECTS.",
                         "WHAT YOU WILL BE DOING INSTEAD IS...",
@@ -222,9 +221,9 @@
                     [
                         "...",
                         "YOU STARE FOR A WHILE.",
-                        "YOU’RE NOT DOING ANYTHING ELSE.",
+                        "YOU'RE NOT DOING ANYTHING ELSE.",
                         "THERE IS NO REASON FOR YOU NOT TO BE DOING THIS RIGHT NOW.",
-                        "AND YET, YOU’RE NOT DOING THIS RIGHT NOW.",
+                        "AND YET, YOU'RE NOT DOING THIS RIGHT NOW.",
                         "YOU STARE SOME MORE.",
                         "THEN YOU SPOT SOMETHING THAT LOOKS LIKE...A BUNNY EAR?",
                         "OH. RIGHT.",
@@ -234,7 +233,7 @@
                         "YOU REMEMBER IMAGINING THEY COULD HOLD YOU TOO.",
                         "...",
                         "YOU GOT A FRIEND IN ME...?",
-                        "OKAY, NOW THAT’S JUST RIDICULOUS.",
+                        "OKAY, NOW THAT'S JUST RIDICULOUS.",
                         "YOU WILL NOT BE RECREATING TOY STORY.",
                         "YOU ARE NOT DESPERATE ENOUGH TO ATTEMPT TO FIND COMPANIONSHIP IN INANIMATE OBJECTS.",
                         "WHAT YOU WILL BE DOING INSTEAD IS...",

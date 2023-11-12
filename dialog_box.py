@@ -16,7 +16,7 @@ class DialogBox(pg.sprite.Sprite):
 
         self.color = color
         
-        self.font = pg.font.Font("./assets/november.ttf", 25)
+        self.font = pg.font.Font("./assets/november.ttf", 30)
         self.image = pg.Surface((self.width, self.height))
         self.rect = pg.Rect(self.x, self.y, self.width, self.height)
 
