@@ -164,19 +164,8 @@
                         "AS IN, THIS EXPLAINS A LOT, ACTUALLY.",
                         "WHAT WILL YOU DO?"
                     ],
-                    "prompt_1" : "",
+                    "prompt_1" : "TAKE A PILL IN IBIZA",
                     "response_1" : 
-                    [
-                        "SEE, THIS WOULD BE THE SMART THING TO DO.",
-                        "WHEN YOUR ROOM IS CLUTTERED, YOU'RE SUPPOSED TO CLEAN IT.",
-                        "WHEN YOUR BODY IS MALNOURISHED, YOU'RE SUPPOSED TO...PUT NUTRIENTS IN IT.",
-                        "...",
-                        "WHY CAN'T YOU DO IT?",
-                        "IT'S SO SIMPLE.",
-                        "WHY CAN'T YOU DO IT?"
-                    ],
-                    "prompt_2" : "TAKE A PILL IN IBIZA",
-                    "response_2" : 
                     [
                         "SEE, THIS WOULD BE THE SMART THING TO DO.",
                         "WHEN YOUR ROOM IS CLUTTERED, YOU'RE SUPPOSED TO CLEAN IT.",
@@ -206,7 +195,7 @@
                     "prompt_1" : "[BUNDLE UP.]",
                     "response_1" : 
                     [
-                        "…",
+                        "...",
                         "YOU STARE FOR A WHILE.",
                         "YOU’RE NOT DOING ANYTHING ELSE.",
                         "THERE IS NO REASON FOR YOU NOT TO BE DOING THIS RIGHT NOW.",
@@ -241,8 +230,8 @@
                         "YOU WILL NOT BE RECREATING TOY STORY.",
                         "YOU ARE NOT DESPERATE ENOUGH TO ATTEMPT TO FIND COMPANIONSHIP IN INANIMATE OBJECTS.",
                         "WHAT YOU WILL BE DOING INSTEAD IS…",
-                        "…",
-                        "…",
+                        "...",
+                        "...",
                         "HM."
                     ]
                 }
@@ -259,7 +248,7 @@
                         "YOU SPEND MOST OF YOUR TIME IN THIS TINY SHIPPING CONTAINER OF A ROOM.",
                         "YOU SEIZE EVERY OPPORTUNITY YOU CAN TO RETURN TO IT AND EVADE THE PERILS OF THE OUTSIDE WORLD.",
                         "IT’S FUNCTIONALLY YOUR HOME BASE.",
-                        "BUT THAT DOESN’T MAKE IT…HOME.",
+                        "BUT THAT DOESN’T MAKE IT...HOME.",
                         "IT’S BEEN TWO MONTHS AND YOU HAVEN’T PUT A SINGLE DECORATION ON THE WALL.",
                         "NOT EVEN THE POLAROIDS OF FRIENDS THAT YOU CAREFULLY SLOTTED INTO A FOLDER BEFORE YOU LEFT.",
                         "HOPING THEY WOULD STAY PERFECTLY PRISTINE UNTIL YOU GOT HERE.",
