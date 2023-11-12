@@ -275,7 +275,7 @@
             {
                 "pos" : [285, 140],
                 "img_path" : "./assets/main_room/poster.png",
-                "checkpoint" : 1,
+                "checkpoint" : -1,
                 "hidden" : 0,
                 "dialogue" : {
                     "initial" :
@@ -336,7 +336,7 @@
                     [
                         ""
                     ],
-                    "prompt_2" : "???",
+                    "prompt_2" : "...",
                     "response_2" : 
                     [
                         ""
@@ -367,7 +367,7 @@
                     [
                         ""
                     ],
-                    "prompt_2" : "???",
+                    "prompt_2" : "...",
                     "response_2" : 
                     [
                         ""
