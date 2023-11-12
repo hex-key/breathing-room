@@ -12,9 +12,8 @@ class DialogBox(pg.sprite.Sprite):
         self.height = height
         self.world = world
         self.dialogue = dialogue
+        self.type = type
 
-        self.lines_index = 0
-        self.total_lines = len(self.dialogue["initial"])
         self.color = color
         self.font = pg.font.Font("./assets/november.ttf", 25)
         self.image = pg.Surface((self.width, self.height))
@@ -27,7 +26,7 @@ class DialogBox(pg.sprite.Sprite):
             self.rect.center = pg.display.get_surface().get_rect().center
         
         self.lines_index = 0
-        self.lines_count = len(self.lines)
+        self.total_lines = len(self.lines)
 
         
         # options: initial, prompt, response
@@ -43,10 +42,9 @@ class DialogBox(pg.sprite.Sprite):
         
 
     def update(self):
-
         if self.state == "initial":
             # display initial dialogue text as user clicks through
-            line_segments = break_line(self, self.dialogue["initial"][self.lines_index])
+            line_segments = break_line(self, self.lines[self.lines_index])
             self.draw_lines(line_segments)
 
         elif self.state == "prompt":
@@ -58,7 +56,7 @@ class DialogBox(pg.sprite.Sprite):
 
         else: # response
             # display response text as user clicks through
-            line_segments = break_line(self, self.dialogue[self.chosen_response][self.lines_index])
+            line_segments = break_line(self, self.lines[self.lines_index])
             self.draw_lines(line_segments)
             
     def check_click(self, p: tuple[int, int]):
@@ -70,9 +68,9 @@ class DialogBox(pg.sprite.Sprite):
                     self.world.sprites.remove(self)
                     self.world.set_world_state("idle_main_room")
                 else:
-                    self.text_surface = self.font.render(self.dialogue["initial"][self.lines_index], True, (0, 0, 0))                
+                    self.text_surface = self.font.render(self.lines[self.lines_index], True, (0, 0, 0))                
                 # advance state if done with initial dialogue
-                if self.lines_index == len(self.dialogue["initial"]) - 1:
+                if self.lines_index == len(self.lines) - 1 and self.type == "room_object":
                     self.state = "prompt"
 
             elif self.state == "prompt":
@@ -88,7 +86,8 @@ class DialogBox(pg.sprite.Sprite):
                     else:
                         self.chosen_response = "response_2"
                     self.lines_index = 0
-                    self.total_lines = len(self.dialogue[self.chosen_response])
+                    self.lines = self.dialogue[self.chosen_response]
+                    self.total_lines = len(self.lines)
                     self.state = "response"
 
             else: # response
@@ -97,7 +96,7 @@ class DialogBox(pg.sprite.Sprite):
                     self.world.sprites.remove(self)
                     self.world.set_world_state("idle_main_room")
                 else:
-                    self.text_surface = self.font.render(self.dialogue[self.chosen_response][self.lines_index], True, (0, 0, 0))            
+                    self.text_surface = self.font.render(self.lines[self.lines_index], True, (0, 0, 0))            
 
 
 def break_line(self, line):
