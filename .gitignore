@@ -1,6 +1,7 @@
 ### OUR GITIGNORE
 
 test.py
+__archive/
 
 ### GITHUB RECOMMENDED GITIGNORE
 
