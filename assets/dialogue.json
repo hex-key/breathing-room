@@ -68,7 +68,7 @@
             "textbooks" : 
             {
                 "pos" : [300, 340],
-                "img_path" : "./assets/main_room/textbooks.png",
+                "img_path" : "./main_room/textbooks.png",
                 "checkpoint" : 0,
                 "hidden" : 0,
                 "dialogue" : {
@@ -96,7 +96,7 @@
             "papers" : 
             {
                 "pos" : [860, 610],
-                "img_path" : "./assets/main_room/papers.png",
+                "img_path" : "./main_room/papers.png",
                 "checkpoint" : 0,
                 "hidden" : 0,
                 "dialogue" : {
@@ -127,7 +127,7 @@
             "laundry" : 
             {
                 "pos" : [770, 400],
-                "img_path" : "./assets/main_room/laundry.png",
+                "img_path" : "./main_room/laundry.png",
                 "checkpoint" : 0,
                 "hidden" : 0,
                 "dialogue" : {
@@ -154,7 +154,7 @@
             "vitamins" : 
             {
                 "pos" : [130, 400],
-                "img_path" : "./assets/main_room/vitamins.png",
+                "img_path" : "./main_room/vitamins.png",
                 "checkpoint" : 1,
                 "hidden" : 0,
                 "dialogue" : {
@@ -192,7 +192,7 @@
             "winter" : 
             {
                 "pos" : [370, 614],
-                "img_path" : "./assets/main_room/winter.png",
+                "img_path" : "./main_room/winter.png",
                 "checkpoint" : 1,
                 "hidden" : 0,
                 "dialogue" : {
@@ -233,7 +233,7 @@
             "stuffies" : 
             {
                 "pos" : [65, 613],
-                "img_path" : "./assets/main_room/stuffies.png",
+                "img_path" : "./main_room/stuffies.png",
                 "checkpoint" : 1,
                 "hidden" : 0,
                 "dialogue" : {
@@ -274,7 +274,7 @@
             "poster" : 
             {
                 "pos" : [285, 140],
-                "img_path" : "./assets/main_room/poster.png",
+                "img_path" : "./main_room/poster.png",
                 "checkpoint" : -1,
                 "hidden" : 0,
                 "dialogue" : {
@@ -297,7 +297,7 @@
             "folder" : 
             {
                 "pos" : [562, 542],
-                "img_path" : "./assets/main_room/folder.png",
+                "img_path" : "./main_room/folder.png",
                 "checkpoint" : 2,
                 "hidden" : 0,
                 "dialogue" : {
@@ -347,7 +347,7 @@
             "mirror" : 
             {
                 "pos" : [211, 549],
-                "img_path" : "./assets/main_room/mirror.png",
+                "img_path" : "./main_room/mirror.png",
                 "checkpoint" : 3,
                 "hidden" : 0,
                 "dialogue" : {

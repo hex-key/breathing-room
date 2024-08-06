@@ -5,22 +5,25 @@ from typing import Callable
 
 from dialog_box import DialogBox as DBox
 
-CAPTION = "breathing room 🪟"
-SCREEN_SIZE = (1000, 750)
+from pathlib import Path
+
+CAPTION: str = "breathing room 🪟"
+SCREEN_SIZE: tuple[int, int] = (1000, 750)
+PRJ_ROOT: Path = Path(__file__).parent.parent
 
 class App():
     def __init__(self):
-        self.screen = pg.display.get_surface()
-        self.screen_rect = self.screen.get_rect()
-        self.clock = pg.time.Clock()
-        self.fps = 60
-        self.done = False
-        self.bg_image = None
+        self.screen: pg.Surface = pg.display.get_surface()
+        self.screen_rect: pg.Rect = self.screen.get_rect()
+        self.clock: pg.time.Clock = pg.time.Clock()
+        self.fps: int = 60
+        self.done: bool = False
+        self.bg_image: pg.Surface
 
-        self.new_cursor = pg.image.load("./assets/cursor_img.png")
+        self.new_cursor: pg.Surface = pg.image.load(PRJ_ROOT / "assets" / "cursor_img.png")
         pg.mouse.set_visible(False)
 
-        self.world = World(self)
+        self.world: World = World(self)
 
     def event_loop(self):
         # event handling, gets all event from the event queue
@@ -51,7 +54,7 @@ class App():
 
 class World():
     def __init__(self, app: App):
-        with open("./dialogue.json", "r") as f:
+        with open(PRJ_ROOT / "assets" / "dialogue.json", "r") as f:
             self.dialogue = json.load(f)
         self.intro_dialogue = self.dialogue["intro"]["dialogue"]
         self.room_objects_dialogue = self.dialogue["main_room"]["objects"]
@@ -68,9 +71,9 @@ class World():
 
     def load_menu(self):
         self.set_world_state("menu")
-        self.app.bg_image = pg.image.load("./assets/menu/bg.png")
+        self.app.bg_image = pg.image.load(PRJ_ROOT / "assets" / "menu" / "bg.png")
         self.sprites.add(
-            MenuButton(self, "./assets/menu/start.png", (480, 620), lambda: self.load_intro()),
+            MenuButton(self, str(PRJ_ROOT / "assets" / "menu" / "start.png"), (480, 620), lambda: self.load_intro()),
                     )
 
     def load_intro(self):
@@ -78,7 +81,7 @@ class World():
         def f():
             self.set_world_state("intro_sequence")
             self.sprites.empty()
-            self.app.bg_image = pg.image.load("./assets/intro/bg.png")
+            self.app.bg_image = pg.image.load(PRJ_ROOT / "assets" / "intro" / "bg.png")
             self.sprites.add(DBox(100, 200, 500, 200, "intro", self.intro_dialogue, self, (221, 255, 252)))
         self.sprites.add(Fade(self, f))
         
@@ -86,7 +89,7 @@ class World():
         self.set_world_state("fade")
         def f():
             self.sprites.empty()
-            self.app.bg_image = pg.image.load("./assets/main_room/bg.png")
+            self.app.bg_image = pg.image.load(PRJ_ROOT / "assets" / "main_room" / "bg.png")
 
             self.remaining_active = 0
             for key, s in self.room_objects_dialogue.items():
@@ -143,7 +146,7 @@ class World():
             case "end":
                 self.state = state
                 self.sprites.empty()
-                self.app.bg_image = pg.image.load("./assets/end/bg.png")
+                self.app.bg_image = pg.image.load(PRJ_ROOT / "assets" / "end" / "bg.png")
             case _:
                 raise Exception("Improper world state passed to set_world_state()")
             
@@ -173,8 +176,8 @@ class RoomObject(pg.sprite.Sprite):
         pg.sprite.Sprite.__init__(self)
         self.world = world
 
-        self.asset = pg.image.load(f"./assets/main_room/{label}.png").convert_alpha()
-        self.asset_active = pg.image.load(f"./assets/main_room/{label}_active.png").convert_alpha()
+        self.asset = pg.image.load(PRJ_ROOT / "assets" / "main_room" / f"{label}.png").convert_alpha()
+        self.asset_active = pg.image.load(PRJ_ROOT / "assets" / "main_room" / f"{label}_active.png").convert_alpha()
         self.image = self.asset
         self.rect = self.image.get_rect()
         self.rect.center = center

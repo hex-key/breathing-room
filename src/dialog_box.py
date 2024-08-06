@@ -1,10 +1,13 @@
 import pygame as pg
 from pygame import sprite
+from pathlib import Path
 
 #need to adapt this to work for the initial screen prompts and the checkpoint prompts
 
+PRJ_ROOT = Path(__file__).parent.parent
+
 class DialogBox(pg.sprite.Sprite):
-    def __init__(self, x: int, y: int, width: int, height: int, type: str, dialogue: list[str], world, color: tuple[int, int, int]=(255, 255, 255)):
+    def __init__(self, x: int, y: int, width: int, height: int, type: str, dialogue, world, color: tuple[int, int, int]=(255, 255, 255)):
         pg.sprite.Sprite.__init__(self)
         self.x = x
         self.y = y
@@ -16,7 +19,7 @@ class DialogBox(pg.sprite.Sprite):
 
         self.color = color
         
-        self.font = pg.font.Font("./assets/november.ttf", 30)
+        self.font = pg.font.Font(PRJ_ROOT / "assets" / "november.ttf", 30)
         self.image = pg.Surface((self.width, self.height))
         self.rect = pg.Rect(self.x, self.y, self.width, self.height)
 
